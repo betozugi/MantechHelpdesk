@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                <div class="content" style="padding-top:0px">
+                    <div class="page-title">
+                        <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
+                        <h3>Accout- <span class="semi-bold">Create Member</span></h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid simple">
+                                <div class="grid-title no-border">
+                                    <h4>Register <span class="semi-bold">Member</span></h4>
+                                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                                </div>
+                                <div class="grid-body no-border">
+                                    <br></br>
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <h:form id="form" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label class="form-label">Username</label>
+                                                    <span class="help">e.g. "nhocsiro"</span>
+                                                    <div class="controls">
+                                                        <h:inputText id="Username" h:type="text" h:placeholder="Username" class="form-control"/>
+                                                    </div>
+                                                    <span style="color:red" id="errUsername" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Email</label>
+                                                    <span class="help">e.g. "some@example.com"</span>
+                                                    <div class="controls">
+                                                        <h:inputText h:type="text" id="Email" h:placeholder="Email" class="form-control"/>
+                                                    </div>
+                                                    <span style="color:red" id="errEmail" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Full Name</label>
+                                                    <span class="help">e.g. "Nguyen Duc Dinh Duy"</span>
+                                                    <div class="controls">
+                                                        <h:inputText h:type="text" id="Fullname" h:placeholder="your name" class="form-control"/>
+                                                    </div>
+                                                    <span style="color:red" id="errFullname" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Birthday</label>
+                                                </div>
+                                                <!-- Khong dung co 2 cai nay no khong lien quan-->
+                                                <input type="checkbox" class="ios" />
+                                                <input type="checkbox" class="iosblue" />
+                                                <div class="input-append success date col-md-10 col-lg-6 no-padding">
+                                                    <h:inputText h:type="text" h:placeholder="Birthday" class="form-control"/>
+                                                    <span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
+                                                </div>
+                                                <br></br><br></br><br></br>
+                                                <div class="form-group">
+                                                    <label class="form-label">Address</label>
+                                                    <span class="help">e.g. "Ho Chi Minh City"</span>
+                                                    <div class="controls">
+                                                        <h:inputText h:type="text" id="Address" h:placeholder="Your Address" class="form-control"/>
+                                                    </div>
+                                                    <span style="color:red" id="errAddress" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Sex</label>
+
+                                                    <div class="radio radio-success">
+                                                        <h:selectOneRadio value="#{user.favColor1}">
+                                                            <f:selectItem itemValue="Male" itemLabel="Male" />
+                                                            <f:selectItem itemValue="Female" itemLabel="Female" />
+                                                        </h:selectOneRadio>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Phone Number</label>
+                                                    <span class="help">e.g. "012.4567.xxxx"</span>
+                                                    <div class="controls">
+                                                        <h:inputText h:type="number" id="PhoneNumber" h:placeholder="Phone Number" class="form-control"/>
+                                                    </div>
+                                                    <span style="color:red" id="errPhone" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Department</label>
+                                                    <div class="controls">
+                                                        <select id="source" style="width:100%">
+                                                            <option value="Educational Services">Educational Services</option>
+                                                            <option value="Management Services">Management Services</option>
+                                                            <option value="Learning Services">Learning Services</option>
+                                                            <option value="Internal systems">Internal systems</option>
+                                                            <option value="Human Resources">Human Resources</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">Avatar</label>
+                                                        <div class="controls">
+                                                            <h:inputFile  id="avatar" h:placeholder="Avatar" class="form-control"/>
+                                                        </div>
+                                                        <span style="color:red" id="errAvatar" class="help"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <h:commandButton value="Sava"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                        <a href="index.html" class="btn btn-white btn-cons">Cancel</a>
+                                                    </div>
+                                                </div>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

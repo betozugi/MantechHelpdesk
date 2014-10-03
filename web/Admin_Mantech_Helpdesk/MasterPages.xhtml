@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Admin</title>
+    <h:outputStylesheet name="./plugins/bootstrap-tag/bootstrap-tagsinput.css"   />
+    <h:outputStylesheet name="./plugins/dropzone/css/dropzone.css"   />
+    <h:outputStylesheet name="./plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"   />
+    <h:outputStylesheet name="./plugins/bootstrap-datepicker/css/datepicker.css"   />
+    <h:outputStylesheet name="./plugins/bootstrap-timepicker/css/bootstrap-timepicker.css"   />
+    <h:outputStylesheet name="./plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css"   />
+    <h:outputStylesheet name="./plugins/ios-switch/ios7-switch.css"  />
+    <h:outputStylesheet name="./plugins/bootstrap-select2/select2.css"   />
+    <h:outputStylesheet name="./plugins/jquery-slider/css/jquery.sidr.light.css"   />
+    <h:outputStylesheet name="./plugins/boostrapv3/css/bootstrap.min.css"   />
+    <h:outputStylesheet name="./plugins/boostrapv3/css/bootstrap-theme.min.css"  /> 
+    <h:outputStylesheet name="./plugins/font-awesome/css/font-awesome.css"   />
+    <h:outputStylesheet name="./css/animate.min.css"   />
+    <h:outputStylesheet name="./css/style.css"   />
+    <h:outputStylesheet name="./css/responsive.css"   />
+    <h:outputStylesheet name="./css/custom-icon-set.css"   />
+    <h:outputStylesheet name="./plugins/boostrap-slider/css/slider.css"  />
+    <style>
+        a{
+            text-decoration:none; 
+        }
+        .ios-switch {
+            display: none;
+        }
+    </style>
+    </h:head>
+
+    <h:body>
+        
+                <div class="header navbar navbar-inverse ">
+        <div class="navbar-inner">
+            <div class="header-seperation" style="display:none">
+                <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">
+                    <li class="dropdown"> <a id="main-menu-toggle" href="#main-menu" class=""> <div class="iconset top-menu-toggle-white"></div> </a> </li>
+                </ul>
+                <a href="index.html"><h:graphicImage library="img" name="logo.png" class="logo" alt="" h:data-src="resources/img/logo.png" h:data-src-retina="design/img/logo2x.png" h:width="106" h:height="21" /></a>
+                <ul class="nav pull-right notifcation-center">
+                    <li class="dropdown" id="header_task_bar"> <a href="index.html" class="dropdown-toggle active" data-toggle=""> <div class="iconset top-home"></div> </a> </li>
+                    <li class="dropdown" id="header_inbox_bar"> <a href="email.html" class="dropdown-toggle"> <div class="iconset top-messages"></div>  <span class="badge" id="msgs-badge">2</span> </a></li>
+                    <li class="dropdown" id="portrait-chat-toggler" style="display:none"> <a href="#sidr" class="chat-menu-toggle"> <div class="iconset top-chat-white "></div> </a> </li>
+                </ul>
+            </div>
+            <div class="header-quick-nav">
+                <div class="pull-left">
+                    <ul class="nav quick-section">
+                        <li class="quicklinks">
+                            <a href="#" class="" id="layout-condensed-toggle">
+                                <div class="iconset top-menu-toggle-dark"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav quick-section">
+                        <li class="quicklinks">
+                            <a href="#" class="">
+                                <div class="iconset top-reload"></div>
+                            </a>
+                        </li>
+                        <li class="quicklinks"> <span class="h-seperate"></span></li>
+                        <li class="quicklinks">
+                            <a href="#" class="">
+                                <div class="iconset top-tiles"></div>
+                            </a>
+                        </li>
+                        <li class="m-r-10 input-prepend inside search-form no-boarder">
+                            <span class="add-on"> <span class="iconset top-search"></span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-right">
+                    <div class="chat-toggler">
+                        <a href="#" class="dropdown-toggle" id="my-task-list">
+                            <div class="user-details">
+                                <div class="username">
+                                    <span class="badge badge-important">3</span>
+                                    Dong Phuong <span class="bold">Bat Bai</span>
+                                </div>
+                            </div>
+                            <div class="iconset top-down-arrow"></div>
+                        </a>
+                        <div class="profile-pic">
+                            <h:graphicImage library="img/profiles" name="avatar_small.jpg"  h:width="35" h:height="35" />
+                        </div>
+                    </div>
+                    <ul class="nav quick-section ">
+                        <li class="quicklinks">
+                            <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                                <div class="iconset top-settings-dark "></div>
+                            </a>
+                            <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                <li>
+                                    <a href="user-profile.html"> Change Password</a>
+                                </li>
+                                <li>
+                                    <a href="calender.html">Information</a>
+                                </li>
+                                <li>
+                                    <a href="email.html">Email&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+                            </ul>
+                        </li>
+                        <li class="quicklinks"> <span class="h-seperate"></span></li>
+                        <li class="quicklinks">
+                            <!--<a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle">
+                                <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
+                            </a>
+                            <div class="simple-chat-popup chat-menu-toggle hide">
+                                <div class="simple-chat-popup-arrow"></div><div class="simple-chat-popup-inner">
+                                    <div style="width:100px">
+                                        <div class="semi-bold">David Nester</div>
+                                        <div class="message">Hey you there </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <a id="chat-menu-toggle" href="#">
+                                <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="page-container row">
+        <div class="page-sidebar mini" id="main-menu">
+            <div class="user-info-wrapper">
+                <div class="profile-wrapper">
+                    <h:graphicImage library="img/profiles" name="avatar.jpg" alt="" h:data-src="design/img/profiles/avatar.jpg" h:data-src-retina="design/img/profiles/avatar2x.jpg" width="69" height="69" />
+                </div>
+                <div class="user-info">
+                    <div class="greeting" style="font-size:15px">Welcome</div>
+                    <div class="username" style="font-size:18px;">Dong<span class="semi-bold">Phuong</span></div>
+                </div>
+            </div>
+            <br /><br /><br /><br />
+            <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
+            <ul>
+                <li class="start active "> <a style="text-decoration:none" href="Index.xhtml"> <i class="fa fa-home"></i> <span class="title">Home</span> </a> </li>
+                <li class="">
+                    <a style="text-decoration:none" href="javascript:;"> <i class="fa fa-ioxhost"></i> <span class="title">Complains</span> <span class="arrow "></span> </a>
+                    <ul class="sub-menu">
+                        <li> <a href="#">New Complains</a> </li>
+                        <li> <a href="#">Đang làm</a> </li>
+                        <li> <a href="#">History Complains</a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a style="text-decoration:none" href="javascript:;"> <i class="fa fa-users"></i> <span class="title">Accout</span> <span class="arrow "></span> </a>
+                    <ul class="sub-menu">
+                        <li> <a href="Create_Member.xhtml">Create Member</a> </li>
+                        <li> <a href="#">Manager Member</a> </li>
+                    </ul>
+                </li>
+                <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-line-chart"></i> <span class="title">Reports</span> </a> </li>
+                <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-newspaper-o"></i> <span class="title">Newspaper</span> </a> </li>
+                <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-question-circle"></i> <span class="title">FAQ</span> </a> </li>
+            </ul>
+            <a href="#" class="scrollup">Scroll</a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="page-content condensed">
+            <div class="clearfix"></div>
+            <div class="content">
+                     <div id="top" class="top">
+                        <ui:insert name="top"></ui:insert>
+                    </div>
+            </div>
+        </div>
+    </div>
+           
+    <h:outputScript library="plugins" name="jquery-1.8.3.min.js" />
+    <h:outputScript library="plugins/jquery-ui" name="jquery-ui-1.10.1.custom.min.js" />
+    <h:outputScript library="plugins/bootstrap/js" name="bootstrap.min.js" />
+    <h:outputScript library="plugins" name="breakpoints.js" />
+    <h:outputScript library="plugins/jquery-unveil" name="jquery.unveil.min.js" />
+    <h:outputScript library="plugins/jquery-slimscroll" name="jquery.slimscroll.min.js" />
+    <h:outputScript library="plugins/jquery-slider" name="jquery.sidr.min.js" />
+    <h:outputScript library="plugins/jquery-numberAnimate" name="jquery.animateNumbers.js" />
+    <h:outputScript library="plugins/jquery-slimscroll" name="jquery.slimscroll.min.js" />
+    <h:outputScript library="plugins/pace" name="pace.min.js" />
+    <h:outputScript library="plugins/jquery-block-ui" name="jqueryblockui.js" />
+    <h:outputScript library="plugins/bootstrap-datepicker/js" name="bootstrap-datepicker.js" />
+    <h:outputScript library="plugins/bootstrap-timepicker/js" name="bootstrap-timepicker.min.js" />
+    <h:outputScript library="plugins/bootstrap-colorpicker/js" name="bootstrap-colorpicker.js" />
+    <h:outputScript library="plugins/jquery-inputmask" name="jquery.inputmask.min.js" />
+    <h:outputScript library="plugins/jquery-autonumeric" name="autoNumeric.js" />
+    <h:outputScript library="plugins/ios-switch" name="ios7-switch.js" />
+    <h:outputScript library="plugins/bootstrap-select2" name="select2.min.js" />
+    <h:outputScript library="plugins/bootstrap-wysihtml5" name="wysihtml5-0.3.0.js" />
+    <h:outputScript library="plugins/bootstrap-wysihtml5" name="bootstrap-wysihtml5.js" />
+    <h:outputScript library="plugins/bootstrap-tag" name="bootstrap-tagsinput.min.js" />
+    <h:outputScript library="plugins/dropzone" name="dropzone.min.js" />
+    <h:outputScript library="js" name="form_elements.js" />
+    <h:outputScript library="plugins/jquery-validation/js" name="jquery.validate.min.js" />
+    <h:outputScript library="js" name="support_ticket.js" />
+    <h:outputScript library="js" name="core.js" />
+    <h:outputScript library="js" name="chat.js" />
+    <h:outputScript library="js" name="demo.js" />
+    <h:outputScript library="js" name="register.js" />
+    </h:body>
+</html>
