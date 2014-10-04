@@ -9,6 +9,9 @@
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
         <title>Admin</title>
+    <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css"   />
+    <h:outputStylesheet name="./plugins/boostrap-checkbox/css/bootstrap-checkbox.css"   />
+    <h:outputStylesheet name="./plugins/jquery-datatable/css/jquery.dataTables.css"   />
     <h:outputStylesheet name="./plugins/bootstrap-tag/bootstrap-tagsinput.css"   />
     <h:outputStylesheet name="./plugins/dropzone/css/dropzone.css"   />
     <h:outputStylesheet name="./plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"   />
@@ -151,7 +154,7 @@
                 <li class="">
                     <a style="text-decoration:none" href="javascript:;"> <i class="fa fa-ioxhost"></i> <span class="title">Complains</span> <span class="arrow "></span> </a>
                     <ul class="sub-menu">
-                        <li> <a href="#">New Complains</a> </li>
+                        <li> <a href="NewComplains.xhtml">New Complains</a> </li>
                         <li> <a href="#">Đang làm</a> </li>
                         <li> <a href="#">History Complains</a></li>
                     </ul>
@@ -171,7 +174,6 @@
             <div class="clearfix"></div>
         </div>
         <div class="page-content condensed">
-            <div class="clearfix"></div>
             <div class="content">
                      <div id="top" class="top">
                         <ui:insert name="top"></ui:insert>
@@ -188,7 +190,6 @@
     <h:outputScript library="plugins/jquery-slimscroll" name="jquery.slimscroll.min.js" />
     <h:outputScript library="plugins/jquery-slider" name="jquery.sidr.min.js" />
     <h:outputScript library="plugins/jquery-numberAnimate" name="jquery.animateNumbers.js" />
-    <h:outputScript library="plugins/jquery-slimscroll" name="jquery.slimscroll.min.js" />
     <h:outputScript library="plugins/pace" name="pace.min.js" />
     <h:outputScript library="plugins/jquery-block-ui" name="jqueryblockui.js" />
     <h:outputScript library="plugins/bootstrap-datepicker/js" name="bootstrap-datepicker.js" />
@@ -205,6 +206,7 @@
     <h:outputScript library="js" name="form_elements.js" />
     <h:outputScript library="plugins/jquery-validation/js" name="jquery.validate.min.js" />
     <h:outputScript library="js" name="support_ticket.js" />
+    <h:outputScript library="js" name="email_comman.js" />
     <h:outputScript library="js" name="core.js" />
     <h:outputScript library="js" name="chat.js" />
     <h:outputScript library="js" name="demo.js" />
