@@ -3,17 +3,15 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=MantechHelpdesk</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=MantechHelpdesks</property>
     <property name="hibernate.connection.username">sa</property>
-    <property name="hibernate.connection.password">123456</property>
-    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-    <mapping class="DTO_Mantech_Helpdesk.Department"/>
-    <mapping class="DTO_Mantech_Helpdesk.Complaint"/>
-    <mapping class="DTO_Mantech_Helpdesk.Faq"/>
-    <mapping class="DTO_Mantech_Helpdesk.Feedback"/>
-    <mapping class="DTO_Mantech_Helpdesk.Member"/>
-    <mapping class="DTO_Mantech_Helpdesk.Post"/>
+    <property name="hibernate.connection.password">1234567</property>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Complaint"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Faq"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Admin"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Feedback"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Member"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Technician"/>
+    <mapping class="vn.aptech.MantechHelpdesk.entities.Post"/>
   </session-factory>
 </hibernate-configuration>
