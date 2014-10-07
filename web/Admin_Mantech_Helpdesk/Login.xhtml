@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Login</title>
         <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css" />
@@ -22,13 +23,17 @@
                         <h2 class="normal">Sign in to Mantech Helpdesk</h2>
                     </div>
                     <h:form>
+                        <!--{loginBean.url}-->
+                        <!--<h:messages showDetail="true"/>-->
+                        <p:growl id="growl" showDetail="true" sticky="true"/>
+                        
                         <div class="tiles grey p-t-20 p-b-20 text-black">
                             <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                                 <div class="col-md-6 col-sm-6 ">
-                                    <h:inputText h:name="login_username" value="#{loginBean.admin.adname}" id="login_username" class="form-control" h:placeholder="Username" />
+                                    <h:inputText h:name="login_username" requiredMessage="Nhap username" value="#{loginBean.admin.adname}" id="login_username" class="form-control" h:placeholder="Username" />
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <h:inputSecret h:name="login_pass" value="#{loginBean.admin.adpass}" id="login_pass"  class="form-control" h:placeholder="Password" />
+                                    <h:inputSecret h:name="login_pass" requiredMessage="Nhap password" value="#{loginBean.admin.adpass}" id="login_pass"  class="form-control" h:placeholder="Password" />
                                 </div>
                             </div>
                             <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
@@ -38,7 +43,7 @@
                                         <h:selectBooleanCheckbox id="checkbox1" />
                                         <label for="checkbox1">Keep me reminded </label>
                                         <br />
-                                        <h:commandButton value="Login"  type="submit"  class="btn btn-primary btn-cons" id="login_toggle"><i class="icon-ok"></i></h:commandButton>
+                                        <h:commandButton value="Login"  class="btn btn-primary btn-cons" id="login_toggle" action="#{loginBean.login}"><i class="icon-ok" ></i></h:commandButton>
                                     </div>
                                 </div>
                             </div>

@@ -6,13 +6,10 @@
 
 package vn.aptech.MantechHelpdesk.business;
 
-import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import vn.aptech.MantechHelpdesk.ulti.HibernateUtil;
 import vn.aptech.MantechHelpdesk.entities.Admin;
+import vn.aptech.MantechHelpdesk.util.HibernateUtil;
 /**
  *
  * @author Beto
@@ -25,17 +22,18 @@ public class EventManager {
         }
         return instance;
     }
-    public Admin checkUser(Admin u) {
+    public Admin checkAdmin(Admin u) {
         Admin admin = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Admin u where u.Adname = ? and u.Adpass = ?");
+            Query q = session.createQuery("from Admin u where  u.adname=? and u.adpass = ?");
             q.setParameter(0, u.getAdname());
             q.setParameter(1, u.getAdpass());
 
             admin = (Admin) q.uniqueResult();
             session.getTransaction().commit();
+            
         } catch (Exception ex) {
             ex.printStackTrace();
             session.getTransaction().commit();

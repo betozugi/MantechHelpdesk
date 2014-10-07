@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Admin</title>
+        <title>#{loginBean.session}</title>
     <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/icontitle.png']}"/>
     <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css"   />
     <h:outputStylesheet name="./plugins/boostrap-checkbox/css/bootstrap-checkbox.css"   />
@@ -87,7 +87,7 @@
                             <div class="user-details">
                                 <div class="username">
                                     <span class="badge badge-important">3</span>
-                                    Dong Phuong <span class="bold">Bat Bai</span>
+                                    <span class="bold">#{loginBean.session}</span>
                                 </div>
                             </div>
                             <div class="iconset top-down-arrow"></div>

@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.entities.Admin;
+import vn.aptech.MantechHelpdesk.util.HttpUtils;
 
 /**
  *
@@ -22,23 +23,34 @@ public class LoginBean {
 
     public LoginBean(){
         admin.setAdname("admin");
+        admin.setAdpass("123456");
     }
-    /**
-     * @return the admin
-     */
     public Admin getAdmin() {
         return admin;
     }
 
-    /**
-     * @param admin the admin to set
-     */
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
     public String login(){
-        if(EventManager.getInstance().checkUser(admin) != null)
-            return "Admin_Mantech_Helpdesk/index.xhtml";
-        return null;
+        if(EventManager.getInstance().checkAdmin(admin) != null){
+            HttpUtils.putToSession("admin", admin.getAdname());
+            HttpUtils.putToSession("avatar", admin.getAvatar());
+            
+            return "/Admin_Mantech_Helpdesk/Index.xhtml";
+            
+        }
+        else{
+             HttpUtils.addErrorMessgae("Error", "Username or Password not correct.");
+        return  null;
+        }
+    }
+    
+     
+    public String getUrl(){
+       return  HttpUtils.getFullURL();
+    }
+    public String getSession(){
+        return  String.valueOf(HttpUtils.getFromSession("admin"));
     }
 }
