@@ -9,6 +9,7 @@ package vn.aptech.MantechHelpdesk.business;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import vn.aptech.MantechHelpdesk.entities.Admin;
+import vn.aptech.MantechHelpdesk.entities.Member;
 import vn.aptech.MantechHelpdesk.util.HibernateUtil;
 /**
  *
@@ -43,4 +44,5 @@ public class EventManager {
 
         return admin;
     }
+   
 }
