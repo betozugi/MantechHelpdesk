@@ -69,7 +69,7 @@ public class Complaint  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="Id_technician")
     public Member getMember() {
         return this.member;

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
 
@@ -47,19 +48,24 @@
                                                                     <th class="medium-cell">Fullname</th>
                                                                     <th class="medium-cell">Department</th>
                                                                     <th>Title</th>
+                                                                    <th>Content</th>
                                                                     <th class="medium-cell">Date</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                               <tr>
-                                                                    <td class="small-cell v-align-middle"><div class="checkbox check-success ">1</div></td>
-                                                                    <td class="clickable v-align-middle">
-                                                                        <h:graphicImage library="img/profiles" name="a.jpg"  h:width="25" h:height="25" />Nhoc Siro
-                                                                    </td>
-                                                                    <td class="clickable v-align-middle">Phòng giám đốc</td>
-                                                                    <td class="clickable tablefull v-align-middle"><span class="muted">Máy Bị cháy rồi anh cho người xún sửa</span></td>
-                                                                    <td class="clickable"><span class="muted">30/09/2014</span></td>
-                                                                </tr>
+                                                                <c:forEach items="#{showComplaintBean.findHistoryComplaint()}" var="row">
+                                                                    <tr>
+                                                                        <td class="small-cell v-align-middle"><div class="checkbox check-success ">#{row.idUser}</div></td>
+                                                                        <td class="clickable v-align-middle">
+                                                                            <h:graphicImage library="img/profiles" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
+                                                                        </td>
+                                                                        <td class="clickable v-align-middle">#{row.member.department}</td>
+                                                                        <td class="clickable tablefull v-align-middle"><span class="muted">#{row.title}</span></td>
+                                                                        <td class="clickable tablefull v-align-middle"><span class="muted">#{row.contents}</span></td>
+                                                                        <td class="clickable"><span class="muted">#{row.dateComplaint}</span></td>
+                                                                        
+                                                                    </tr>
+                                                                </c:forEach>
                                                             </tbody>
                                                         </table>
                                                     </div>
