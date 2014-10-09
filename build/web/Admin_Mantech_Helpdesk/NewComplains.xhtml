@@ -50,6 +50,7 @@
                                                                     <th>Title</th>
                                                                     <th>Content</th>
                                                                     <th class="medium-cell">Date</th>
+                                                                    <th>Choose Technician</th>
                                                                     
                                                                 </tr>
                                                             </thead>
@@ -64,7 +65,18 @@
                                                                         <td class="clickable tablefull v-align-middle"><span class="muted">#{row.title}</span></td>
                                                                         <td class="clickable tablefull v-align-middle"><span class="muted">#{row.contents}</span></td>
                                                                         <td class="clickable"><span class="muted">#{row.dateComplaint}</span></td>
-                                                                        
+                                                                        <td>
+                                                                            <select name="">
+                                                                                <c:forEach items="#{showTechinicianBean.getFreeTechnician()}" var="techrow">
+                                                                                    <option value="#{techrow.id}">
+                                                                                        #{techrow.id}
+                                                                                    </option>
+                                                                                </c:forEach>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="submit" value="Assign" action="" />
+                                                                        </td>
                                                                     </tr>
                                                                 </c:forEach>
                                                             </tbody>

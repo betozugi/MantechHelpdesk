@@ -13,6 +13,7 @@ import org.hibernate.Session;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Member;
+import vn.aptech.MantechHelpdesk.entities.Technician;
 import vn.aptech.MantechHelpdesk.util.HibernateUtil;
 /**
  *
@@ -52,8 +53,8 @@ public class EventManager {
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("from Complaint c where c.status=?");
-            q.setParameter(0, "dang cho");
+            Query q= session.createQuery("from Complaint c where c.status!=?");
+            q.setParameter(0, "da xong");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -81,4 +82,39 @@ public class EventManager {
         }
         return list;
     }
+   public List<Technician> getFreeTechnician(){
+        List<Technician> list= new ArrayList<Technician>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Technician t where t.statusTechnician=?");
+            q.setParameter(0, "dang ranh");
+            list=q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+       return list;
+   }
+   public Integer updateComplaint(){
+        Complaint complaint= new Complaint();
+        int result = 0;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("update Complaint c set c.status=? where id");
+            q.setParameter(0, "dang xu ly");
+            result= q.executeUpdate();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().commit();
+        }finally{
+            session.close();
+        }
+        return result;
+   }
 }
