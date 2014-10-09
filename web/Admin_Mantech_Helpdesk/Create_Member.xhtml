@@ -31,25 +31,32 @@
                                                     <label class="form-label">Username</label>
                                                     <span class="help">e.g. "nhocsiro"</span>
                                                     <div class="controls">
-                                                        <h:inputText id="Username" h:type="text" h:placeholder="Username" class="form-control"/>
+                                                        <h:inputText id="Username" h:type="text" h:placeholder="Username" required="true" requiredMessage="Username is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                            <f:validateLength minimum="3" />
+                                                        </h:inputText>
                                                     </div>
+                                                    <h:message style="color: red" for="Username"/>
                                                     <span style="color:red" id="errUsername" class="help"></span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Email</label>
                                                     <span class="help">e.g. "some@example.com"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Email" h:placeholder="Email" class="form-control"/>
+                                                        <h:inputText h:type="text" id="Email" h:placeholder="Email" required="true" requiredMessage="Email is not null" validatorMessage="Email Incorrect" class="form-control">
+                                                            <f:validateRegex  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"   />
+                                                        </h:inputText>
                                                     </div>
-                                                    <span style="color:red" id="errEmail" class="help"></span>
+                                                    <h:message style="color: red" for="Email"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Full Name</label>
                                                     <span class="help">e.g. "Nguyen Duc Dinh Duy"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Fullname" h:placeholder="your name" class="form-control"/>
+                                                        <h:inputText h:type="text" id="Fullname" h:placeholder="your name" required="true" requiredMessage="Fullname is not null" validatorMessage="Length is less than allowable minimum of 5" class="form-control">
+                                                            <f:validateLength minimum="5" />
+                                                        </h:inputText>
                                                     </div>
-                                                    <span style="color:red" id="errFullname" class="help"></span>
+                                                    <h:message style="color: red" for="Fullname"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Birthday</label>
@@ -58,17 +65,20 @@
                                                 <input type="checkbox" class="ios" />
                                                 <input type="checkbox" class="iosblue" />
                                                 <div class="input-append success date col-md-10 col-lg-6 no-padding">
-                                                    <h:inputText h:type="text" h:placeholder="Birthday" class="form-control"/>
+                                                    <h:inputText h:type="text" id="Birthday" h:placeholder="Birthday" required="true" requiredMessage="Birthday is not null" style="" disabled="disabled" class="form-control"/>
                                                     <span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
                                                 </div>
                                                 <br></br><br></br><br></br>
+                                                <h:message style="color: red" for="Birthday"/>
                                                 <div class="form-group">
                                                     <label class="form-label">Address</label>
                                                     <span class="help">e.g. "Ho Chi Minh City"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Address" h:placeholder="Your Address" class="form-control"/>
+                                                        <h:inputText h:type="text" id="Address" h:placeholder="Your Address" required="true" requiredMessage="Address is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                            <f:validateLength minimum="3" />
+                                                        </h:inputText>
                                                     </div>
-                                                    <span style="color:red" id="errAddress" class="help"></span>
+                                                    <h:message style="color: red" for="Address"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Sex</label>
@@ -84,7 +94,9 @@
                                                     <label class="form-label">Phone Number</label>
                                                     <span class="help">e.g. "012.4567.xxxx"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="number" id="PhoneNumber" h:placeholder="Phone Number" class="form-control"/>
+                                                        <h:inputText h:type="number" id="PhoneNumber" h:placeholder="Phone Number" required="true" requiredMessage="Phone number is not null" validatorMessage=" Length is less than allowable minimum of 11"  class="form-control">
+                                                            <f:validateLength minimum="11" />
+                                                        </h:inputText> 
                                                     </div>
                                                     <span style="color:red" id="errPhone" class="help"></span>
                                                 </div>
