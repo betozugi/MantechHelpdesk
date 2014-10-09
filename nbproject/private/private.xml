@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/src/java/vn/aptech/MantechHelpdesk/bean/LoginBean.java</file>
+            <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/src/java/vn/aptech/MantechHelpdesk/entities/Complaint.java</file>
+            <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/src/java/vn/aptech/MantechHelpdesk/bean/ComplaintBean.java</file>
+            <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/src/java/vn/aptech/MantechHelpdesk/bean/ShowComplaintBean.java</file>
             <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/src/java/vn/aptech/MantechHelpdesk/business/EventManager.java</file>
+            <file>file:/C:/Users/Beto/Desktop/MantechHelpdesk/web/Admin_Mantech_Helpdesk/NewComplains.xhtml</file>
         </group>
     </open-files>
 </project-private>

@@ -29,9 +29,5 @@ public class ComplaintBean {
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }
-    public String updateComplaint(){
-        if(EventManager.getInstance().updateComplaint()!=null)
-            return "NewComplaint";
-        return "NewComplaint";
-    }
+   
 }

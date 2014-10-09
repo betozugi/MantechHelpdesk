@@ -99,15 +99,17 @@ public class EventManager {
         }
        return list;
    }
-   public Integer updateComplaint(){
+   public Integer updateComplaint(int c){
         Complaint complaint= new Complaint();
         int result = 0;
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("update Complaint c set c.status=? where id");
-            q.setParameter(0, "dang xu ly");
+            Query q= session.createQuery("update Complaint c set c.status=? where c.id = ?");
+            q.setParameter(0, "dang xu li");
+            q.setParameter(1, c);
             result= q.executeUpdate();
+            
             session.getTransaction().commit();
         }catch(Exception ex){
             ex.printStackTrace();

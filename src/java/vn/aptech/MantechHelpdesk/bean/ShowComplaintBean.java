@@ -38,4 +38,12 @@ public class ShowComplaintBean {
     public List<Complaint> findHistoryComplaint(){
         return EventManager.getInstance().findHistoryComplaint();
     }
+     public void updateComplaint(Complaint c){
+        System.out.println("-------"+c.getIdUser());
+        if(EventManager.getInstance().updateComplaint(c.getIdUser())!=null){
+            
+        }
+           
+    }
+    
 }
