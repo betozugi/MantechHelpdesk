@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css" />
+        <h:outputStylesheet name="./plugins/boostrapv3/css/bootstrap.min.css" />
+        <h:outputStylesheet name="./plugins/boostrapv3/css/bootstrap-theme.min.css" />
+        <h:outputStylesheet name="./plugins/font-awesome/css/font-awesome.css" />
+        <h:outputStylesheet name="./css/animate.min.css" />
+        <h:outputStylesheet name="./css/style.css" />
+        <h:outputStylesheet name="./css/responsive.css" />
+        <h:outputStylesheet name="./css/custom-icon-set.css" />
+    </h:head>
+    <h:body class="error-body no-top">
+        <div class="container">
+            <div class="row login-container column-seperation">  
+                <div class="col-md-5 col-md-offset-1">
+                    <h2>Sign in to Mantech Helpdesk</h2>
+                    <p>Mantech Limited  Customer Helpdesk .<br></br></p>
+                    <br></br>
+                    <button class="btn btn-block btn-info col-md-8" type="button">
+                        <span class="pull-left"><i class="icon-facebook"></i></span>
+                        <span class="bold">Home</span> </button>
+                    <button class="btn btn-block btn-success col-md-8" type="button">
+                        <span class="pull-left"><i class="icon-twitter"></i></span>
+                        <span class="bold">Forgot your password?</span>
+                    </button>
+                </div>
+                <div class="col-md-5 "> <br></br>
+                    <form id="login-form" class="login-form" action="index.html" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-10">
+                                <label class="form-label">Username</label>
+                                <div class="controls">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <h:inputText  id="username" class="form-control"></h:inputText>                                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10">
+                                <label class="form-label">Password</label>
+                                <span class="help"></span>
+                                <div class="controls">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <h:inputText  id="password" class="form-control"></h:inputText>                               
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <!--Ở ĐÂY CHUYỄN QUA TRANG HOME.XHTML-->
+                                <h:commandButton value="Login"  class="btn btn-primary btn-cons pull-right"><i class="icon-ok" ></i></h:commandButton>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+        <h:outputScript library="plugins" name="jquery-1.8.3.min.js" />
+        <h:outputScript library="plugins/bootstrap/js" name="bootstrap.min.js" />
+        <h:outputScript library="plugins/pace" name="pace.min.js" />
+        <h:outputScript library="plugins/jquery-validation/js" name="jquery.validate.min.js" />
+        <h:outputScript library="js" name="login.js" />
+    </h:body>
+</html>
+

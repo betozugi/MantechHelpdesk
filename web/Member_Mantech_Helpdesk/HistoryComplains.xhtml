@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                 <div class="row">
+                    <div class="content" style="padding-top:10px">
+                        <div class="page-title">
+                            <a href="NewComplains.xhtml" id="btn-back"><i class="icon-custom-left"></i></a>
+                            <h3>Complains- <span class="semi-bold">History Complains</span></h3>
+                        </div>
+                        <div class="row" id="inbox-wrapper">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="grid simple">
+                                            <div class="grid-body no-border email-body">
+                                                <br></br>
+                                                <div class="row-fluid">
+                                                    <div class="row-fluid dataTables_wrapper">
+                                                        <h2 class=" inline">History Complains </h2>
+                                                        <div class="pull-right margin-top-20">
+                                                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                                                <ul>
+                                                                    <li class="prev disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                                                    <li class="active"><a href="#">1</a></li>
+                                                                    <li><a href="#">2</a></li>
+                                                                    <li class="next"><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="dataTables_info hidden-xs" id="example_info">Showing <b>1 to 10</b> of 14 entries</div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+
+                                                    <div id="email-list">
+                                                        <table class="table table-striped table-fixed-layout table-hover" id="emails">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="small-cell">Stt</th>
+                                                                    <th class="medium-cell">Fullname</th>
+                                                                    <th class="medium-cell">Department</th>
+                                                                    <th>Title</th>
+                                                                    <th>Content</th>
+                                                                    <th>Technician</th>
+                                                                    <th class="medium-cell">Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <c:forEach items="#{showComplaintBean.findHistoryComplaint()}" var="row">
+                                                                    <tr>
+                                                                        <td class="small-cell v-align-middle"><div class="checkbox check-success ">#{row.idUser}</div></td>
+                                                                        <td class="clickable v-align-middle">
+                                                                            <h:graphicImage library="img/profiles" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
+                                                                        </td>
+                                                                        <td class="clickable v-align-middle">#{row.member.department}</td>
+                                                                        <td class="clickable tablefull v-align-middle"><span class="muted">#{row.title}</span></td>
+                                                                        <td class="clickable tablefull v-align-middle"><span class="muted">#{row.contents}</span></td>
+                                                                        <td class="clickable tablefull v-align-middle"><span class="muted">#{row.technician.fullname}</span></td>
+                                                                        <td class="clickable"><span class="muted">#{row.dateComplaint}</span></td>
+                                                                        
+                                                                    </tr>
+                                                                </c:forEach>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="preview-email-wrapper" style="display:none">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="grid simple">
+                                            <div class="grid-body no-border" style="min-height: 850px;">
+                                                <div class="">
+                                                    <h1 id="emailheading">Nguyen Duc Dinh Duy</h1>
+                                                    <br></br>
+                                                    <div class="control">
+                                                        <div class="pull-left">
+                                                            <label class="inline"><span class="muted">&nbsp;&nbsp;to</span> <span class="bold small-text">johnsmith@skyace.com</span></label>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <span class="muted small-text">August 5 2013 11.30PM</span>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <br></br>
+                                                    <div class="email-body">
+                                                        <p>
+                                                            NHÀ BỊ CHÁY RỒI BA MÁ ƠI
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

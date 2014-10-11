@@ -1738,7 +1738,7 @@ display:none;
 	
 }
 .page-content.condensed{
-	 margin-left: 50px;
+	 margin-left: 0px;
 }
 
 /*** Inner menu of Email App - Extra stuff ***/
@@ -2013,7 +2013,7 @@ font-family: 'Open Sans';
     content: "\f105";
 }
 .page-content .content{
-	padding-left: 26px;
+	padding-left: 60px;
 	padding-right: 26px;
 	padding-top:85px;
 }
@@ -7019,7 +7019,7 @@ ul.my-friends li .profile-pic{
 
 .post .post-links li:after {
     color: #999999;
-    content: "•";
+    content: "?";
 	padding-left:8px;
 }
 
@@ -7492,7 +7492,7 @@ ul.my-friends li .profile-pic{
 
 .cbp_tmtimeline .action-links li:after {
     color: #999999;
-    content: "•";
+    content: "?";
 	padding-left:8px;
 }
 

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                <div class="content"  style="padding-top:10px"> 
+                    <div class="page-title">
+                        <a href="NewComplains.xhtml" id="btn-back"><i class="icon-custom-left"></i></a>
+                        <h3>Complains- <span class="semi-bold">New Complains</span></h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid simple" >
+                                <div class="grid-body no-border" style="min-height: 660px;" >
+                                    <br></br>
+                                    <div class="row-fluid " >
+                                        <h2>New Conplaint </h2>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label class="form-label">Title</label>
+                                                <span class="help">e.g. "....."</span>
+                                                <div class="controls">
+                                                    <h:inputText  class="form-control "/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <h:inputTextarea id="text-editor" h:placeholder="Enter text ..." class="form-control" rows="20"/>									
+                                            </div>							
+                                        </div>	
+                                        <div class="pull-right">
+                                            <h:commandButton value="SEND"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                        </div>
+                                    </div>							
+                                </div>							
+                            </div>
+                        </div>	
+
+                    </div>
+                </div>	
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
