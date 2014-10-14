@@ -54,7 +54,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <c:forEach items="#{showComplaintBean.findHistoryComplaint()}" var="row">
+                                                                <c:forEach items="#{historyComplaintBean.getListComplaint(memberLoginBean.session.id)}" var="row">
                                                                     <tr>
                                                                         <td class="small-cell v-align-middle"><div class="checkbox check-success ">#{row.idUser}</div></td>
                                                                         <td class="clickable v-align-middle">
@@ -65,7 +65,7 @@
                                                                         <td class="clickable tablefull v-align-middle"><span class="muted">#{row.contents}</span></td>
                                                                         <td class="clickable tablefull v-align-middle"><span class="muted">#{row.technician.fullname}</span></td>
                                                                         <td class="clickable"><span class="muted">#{row.dateComplaint}</span></td>
-                                                                        
+                                                                        <h:commandButton value="View Feedback" ></h:commandButton>
                                                                     </tr>
                                                                 </c:forEach>
                                                             </tbody>

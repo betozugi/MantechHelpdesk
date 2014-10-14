@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Hello Guests</title>
         <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css"   />
@@ -65,117 +66,29 @@
                 <div class="content">
                     <div class="col-md-10 col-vlg-7">
                         <ul class="cbp_tmtimeline">
+                            <c:forEach items="#{postBean.allPost}" var="row">
                             <li>
                                 <div class="cbp_tmicon animated bounceIn">
                                     <div class="user-profile"><i class="fa fa-newspaper-o"/></div>
                                 </div>
                                 <div class="cbp_tmlabel">
+                                   
                                     <div class="p-t-10 p-l-30 p-r-20 p-b-20 xs-p-r-10 xs-p-l-10 xs-p-t-5">
-                                        <h4 class="inline m-b-5"><span class="text-success semi-bold">Em Nói Gì</span> </h4>
-                                        <div class="muted">11/10/2014 - 12:45pm</div>
+                                         
+                                        <h4 class="inline m-b-5"><span class="text-success semi-bold">#{row.title}</span> </h4>
+                                        <div class="muted">#{row.datePost}</div>
                                         <div class="xs-p-r-10 xs-p-l-10 p-l-30 p-r-20 p-b-10 p-t-20 row">
                                             <span>
-                                                Đóng góp: Zing Mp3
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
+                                               #{row.contents}
                                             </span>
                                         </div>
+                                        
                                     </div> 
+                                    
                                 </div>
                             </li>
-                            <li>
-                                <div class="cbp_tmicon animated bounceIn">
-                                    <div class="user-profile"><i class="fa fa-newspaper-o"/></div>
-                                </div>
-                                <div class="cbp_tmlabel">
-                                    <div class="p-t-10 p-l-30 p-r-20 p-b-20 xs-p-r-10 xs-p-l-10 xs-p-t-5">
-                                        <h4 class="inline m-b-5"><span class="text-success semi-bold">Em Nói Gì</span> </h4>
-                                        <div class="muted">11/10/2014 - 12:45pm</div>
-                                        <div class="xs-p-r-10 xs-p-l-10 p-l-30 p-r-20 p-b-10 p-t-20 row">
-                                            <span>
-                                                Đóng góp: Zing Mp3
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-                                            </span>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cbp_tmicon animated bounceIn">
-                                    <div class="user-profile"><i class="fa fa-newspaper-o"/></div>
-                                </div>
-                                <div class="cbp_tmlabel">
-                                    <div class="p-t-10 p-l-30 p-r-20 p-b-20 xs-p-r-10 xs-p-l-10 xs-p-t-5">
-                                        <h4 class="inline m-b-5"><span class="text-success semi-bold">Em Nói Gì</span> </h4>
-                                        <div class="muted">11/10/2014 - 12:45pm</div>
-                                        <div class="xs-p-r-10 xs-p-l-10 p-l-30 p-r-20 p-b-10 p-t-20 row">
-                                            <span>
-                                                Đóng góp: Zing Mp3
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Em nói gì ... Để lòng anh mãi nhớ nhung
-                                                Bao mùa lá rơi sao em .. giờ xa khuất
-                                                Em nhớ gì ... Về tình yêu anh đã trao
-                                                Trong phút giây này .. chỉ mình anh ôm bao nhớ thương tình yêu ấy
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-
-                                                Nồng nàn hơi ấm ... vòng tay anh xiết bao tháng ngày , giữ bóng dáng em chốn này
-                                                Em có hay lời em nói .. nghẹn ngào cay đắng , phải chăng em đã quên anh rồi
-                                                Nói đi em hãy nói rằng , em vẫn bên anh ...
-                                            </span>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </li>
+                            </c:forEach>
+                            
                         </ul>
                     </div>
                 </div>

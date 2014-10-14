@@ -86,13 +86,13 @@
                                 <div class="user-details">
                                     <div class="username">
                                         <span class="badge badge-important">3</span>
-                                        <span class="bold">#{loginBean.session}</span>
+                                        <span class="bold">#{memberLoginBean.session.username}</span>
                                     </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
                             <div class="profile-pic">
-                                <h:graphicImage library="img/profiles" name="avatar_small.jpg"  h:width="35" h:height="35" />
+                                <h:graphicImage library="img/profiles" name="#{memberLoginBean.session.avatar}"  h:width="35" h:height="35" />
                             </div>
                         </div>
                         <ul class="nav quick-section ">
@@ -121,7 +121,8 @@
             <div class="page-sidebar mini" id="main-menu">
                 <div class="user-info-wrapper">
                     <div class="profile-wrapper">
-                        <h:graphicImage library="img/profiles" name="avatar.jpg" alt="" h:data-src="design/img/profiles/avatar.jpg" h:data-src-retina="design/img/profiles/avatar2x.jpg" width="69" height="69" />
+                        
+                        <h:graphicImage library="img/profiles" name="#{memberLoginBean.session.avatar}" alt="" h:data-src="design/img/profiles/avatar.jpg" h:data-src-retina="design/img/profiles/avatar2x.jpg" width="69" height="69" />
                     </div>
                     <div class="user-info">
                         <div class="greeting" style="font-size:15px">Welcome</div>
