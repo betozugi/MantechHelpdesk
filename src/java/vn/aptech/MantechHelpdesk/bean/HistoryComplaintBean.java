@@ -5,11 +5,13 @@
  */
 package vn.aptech.MantechHelpdesk.bean;
 
+import static java.util.Collections.list;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.MemberEventManager;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
+import vn.aptech.MantechHelpdesk.entities.Feedback;
 
 /**
  *
@@ -19,6 +21,7 @@ import vn.aptech.MantechHelpdesk.entities.Complaint;
 @RequestScoped
 public class HistoryComplaintBean {
     private Complaint complaint;
+    
     public HistoryComplaintBean(){
         complaint= new Complaint();
     }
@@ -32,5 +35,24 @@ public class HistoryComplaintBean {
     }
     public List<Complaint> getListComplaint(String id){
         return MemberEventManager.getInstance().getListComplaint(id);
+    }
+    public String getIdComplaint(){
+        if(MemberEventManager.getInstance().getIdComplaint(complaint)!=null){
+            System.out.println(complaint.getId());
+            return "/Member_Mantech_Helpdesk/Feedback.xhtml";
+        }else{
+            return null;
+        }
+    }
+    public List<Feedback> findByIdFeedback(Feedback f){
+        return MemberEventManager.getInstance().findByIdFeedback(f.getComplaint().getId());
+        
+    }
+    
+    
+    public  List<Feedback> getListFeedback() {
+        List<Feedback> list= MemberEventManager.getInstance().findByIdFeedback(complaint.getId());
+        return list;
+        
     }
 }

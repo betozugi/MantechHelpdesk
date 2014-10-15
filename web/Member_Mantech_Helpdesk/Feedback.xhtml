@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                <c:forEach items="#{historyComplaintBean.listFeedback}" var="row">
+                    <span>
+                        <b>#{row.complaint.member.fullname}:</b>
+                    </span>
+                    <span>
+                        #{row.contents}
+                    </span><br></br>
+                </c:forEach>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

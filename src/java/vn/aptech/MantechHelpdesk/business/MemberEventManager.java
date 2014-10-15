@@ -93,4 +93,40 @@ public class MemberEventManager {
         }
         return list;
     }
+    public List<Feedback> findByIdFeedback(int id){
+        List<Feedback> list= new ArrayList<Feedback>();
+        
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Feedback f where f.complaint.id = ? order by f.dateFeedback");
+            q.setParameter(0, id);
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }
+        return list;
+    }
+    public Complaint getIdComplaint(Complaint c){
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.id=?");
+            q.setParameter(0, c.getId());
+            c= (Complaint)q.uniqueResult();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return c;
+    }
+//    public static void main(String[] args) {
+//        List<Feedback> findByIdFeedback = MemberEventManager.getInstance().findByIdFeedback(15);
+//        System.out.println(findByIdFeedback);
+//    }
 }

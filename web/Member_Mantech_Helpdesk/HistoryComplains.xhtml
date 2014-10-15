@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -41,6 +42,7 @@
                                                     </div>
 
                                                     <div id="email-list">
+                                                        <h:form>
                                                         <table class="table table-striped table-fixed-layout table-hover" id="emails">
                                                             <thead>
                                                                 <tr>
@@ -64,12 +66,16 @@
                                                                         <td class="clickable"><span class="muted">#{row.dateComplaint}</span></td>
                                                                         <td class="clickable tablefull v-align-middle"><span class="muted">#{row.status}</span></td>
                                                                         <td>
-                                                                            <h:commandButton value="View Feedback"></h:commandButton>
+                                                                            <h:commandButton value="View feedback" action="#{historyComplaintBean.getIdComplaint()}">
+                                                                                <f:setPropertyActionListener target="#{historyComplaintBean.complaint}" value="#{row}"/>
+                                                                            
+                                                                            </h:commandButton>
                                                                         </td>
                                                                     </tr>
                                                                 </c:forEach>
                                                             </tbody>
                                                         </table>
+                                                        </h:form>
                                                     </div>
                                                 </div>
                                             </div>
