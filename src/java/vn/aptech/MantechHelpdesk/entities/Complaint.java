@@ -1,5 +1,5 @@
 package vn.aptech.MantechHelpdesk.entities;
-// Generated Oct 7, 2014 4:39:05 PM by Hibernate Tools 3.6.0
+// Generated Oct 16, 2014 2:59:49 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -69,8 +69,8 @@ public class Complaint  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="Id_user",insertable=false, updatable=false)
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Id_technician")
     public Member getMember() {
         return this.member;
     }
@@ -79,7 +79,7 @@ public class Complaint  implements java.io.Serializable {
         this.member = member;
     }
 
-@ManyToOne(fetch=FetchType.EAGER)
+@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Id_technician", insertable=false, updatable=false)
     public Technician getTechnician() {
         return this.technician;

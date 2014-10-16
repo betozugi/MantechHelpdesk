@@ -8,8 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
-<!--        <title>#{loginBean.session}</title>
-    <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/icontitle.png']}"/>-->
+        <title>#{loginBean.session}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/icontitle.png']}"/>
         <title></title>
     <h:outputStylesheet name="./plugins/pace/pace-theme-flash.css"   />
     <h:outputStylesheet name="./plugins/boostrap-checkbox/css/bootstrap-checkbox.css"   />
@@ -42,6 +42,14 @@
     </h:head>
 
     <h:body>
+         <h:form>
+            <script>
+                var isLogin= #{loginBean.logined};
+                if(isLogin===false){
+                    window.location='Login.xhtml';
+                }
+            
+            </script>
         
                 <div class="header navbar navbar-inverse ">
         <div class="navbar-inner">
@@ -191,5 +199,6 @@
     <h:outputScript library="js" name="core.js" />
     <h:outputScript library="js" name="chat.js" />
     <h:outputScript library="js" name="demo.js" />
+    </h:form>
     </h:body>
 </html>

@@ -48,6 +48,26 @@ public class EventManager {
 
         return admin;
     }
+    public boolean insertMember(Member member) {
+    boolean insertResult = false;
+    Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//            Date date = new Date();
+//            member.setBirthday(date);
+            session.save(member);
+            insertResult = true;
+
+            session.getTransaction().commit();
+        }catch( Exception ex ){
+            ex.printStackTrace();
+            insertResult = false;
+        }finally{
+            session.close();
+        }
+        return insertResult;
+   }
    public List<Complaint> findNewComplaint(){
         List<Complaint> list= new ArrayList<Complaint>();
         Session session= HibernateUtil.getSessionFactory().openSession();

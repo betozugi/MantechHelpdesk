@@ -53,4 +53,12 @@ public class LoginBean {
     public String getSession(){
         return  String.valueOf(HttpUtils.getFromSession("admin"));
     }
+    
+    public boolean isLogined(){
+        if(HttpUtils.getFromSession("admin")!=null){
+            return true;
+        }
+        return false;
+        
+    }
 }

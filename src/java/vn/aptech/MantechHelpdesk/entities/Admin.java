@@ -1,5 +1,5 @@
 package vn.aptech.MantechHelpdesk.entities;
-// Generated Oct 7, 2014 4:39:05 PM by Hibernate Tools 3.6.0
+// Generated Oct 16, 2014 2:59:49 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;

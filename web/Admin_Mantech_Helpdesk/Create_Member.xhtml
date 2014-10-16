@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
@@ -14,6 +15,7 @@
                     <div class="page-title">
                         <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
                         <h3>Accout- <span class="semi-bold">Create Member</span></h3>
+                        <p:growl id="growl" showDetail="true" sticky="true"/>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -31,7 +33,7 @@
                                                     <label class="form-label">Username</label>
                                                     <span class="help">e.g. "nhocsiro"</span>
                                                     <div class="controls">
-                                                        <h:inputText id="Username" h:type="text" h:placeholder="Username" required="true" requiredMessage="Username is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                        <h:inputText id="Username" value="#{registerBean.member.username}" h:type="text" h:placeholder="Username" required="true" requiredMessage="Username is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
                                                             <f:validateLength minimum="3" />
                                                         </h:inputText>
                                                     </div>
@@ -42,7 +44,7 @@
                                                     <label class="form-label">Email</label>
                                                     <span class="help">e.g. "some@example.com"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Email" h:placeholder="Email" required="true" requiredMessage="Email is not null" validatorMessage="Email Incorrect" class="form-control">
+                                                        <h:inputText h:type="text" value="#{registerBean.member.email}" id="Email" h:placeholder="Email" required="true" requiredMessage="Email is not null" validatorMessage="Email Incorrect" class="form-control">
                                                             <f:validateRegex  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"   />
                                                         </h:inputText>
                                                     </div>
@@ -52,7 +54,7 @@
                                                     <label class="form-label">Full Name</label>
                                                     <span class="help">e.g. "Nguyen Duc Dinh Duy"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Fullname" h:placeholder="your name" required="true" requiredMessage="Fullname is not null" validatorMessage="Length is less than allowable minimum of 5" class="form-control">
+                                                        <h:inputText h:type="text" value="#{registerBean.member.fullname}" id="Fullname" h:placeholder="your name" required="true" requiredMessage="Fullname is not null" validatorMessage="Length is less than allowable minimum of 5" class="form-control">
                                                             <f:validateLength minimum="5" />
                                                         </h:inputText>
                                                     </div>
@@ -65,7 +67,7 @@
                                                 <input type="checkbox" class="ios" />
                                                 <input type="checkbox" class="iosblue" />
                                                 <div class="input-append success date col-md-10 col-lg-6 no-padding">
-                                                    <h:inputText h:type="text" id="Birthday" h:placeholder="Birthday" required="true" requiredMessage="Birthday is not null" style="" disabled="disabled" class="form-control"/>
+                                                    <h:inputText h:type="text" value="#{registerBean.member.birthday}" id="Birthday" h:placeholder="Birthday" required="true" requiredMessage="Birthday is not null" style="" disabled="disabled" class="form-control"/>
                                                     <span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
                                                 </div>
                                                 <br></br><br></br><br></br>
@@ -74,7 +76,7 @@
                                                     <label class="form-label">Address</label>
                                                     <span class="help">e.g. "Ho Chi Minh City"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="text" id="Address" h:placeholder="Your Address" required="true" requiredMessage="Address is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                        <h:inputText h:type="text" value="#{registerBean.member.address}" id="Address" h:placeholder="Your Address" required="true" requiredMessage="Address is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
                                                             <f:validateLength minimum="3" />
                                                         </h:inputText>
                                                     </div>
@@ -84,7 +86,7 @@
                                                     <label class="form-label">Sex</label>
 
                                                     <div class="radio radio-success">
-                                                        <h:selectOneRadio value="#{user.favColor1}">
+                                                        <h:selectOneRadio value="#{registerBean.member.sex}">
                                                             <f:selectItem itemValue="Male" itemLabel="Male" />
                                                             <f:selectItem itemValue="Female" itemLabel="Female" />
                                                         </h:selectOneRadio>
@@ -92,35 +94,42 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Phone Number</label>
-                                                    <span class="help">e.g. "012.4567.xxxx"</span>
+                                                    <span class="help">e.g. "0124567xxxx"</span>
                                                     <div class="controls">
-                                                        <h:inputText h:type="number" id="PhoneNumber" h:placeholder="Phone Number" required="true" requiredMessage="Phone number is not null" validatorMessage=" Length is less than allowable minimum of 11"  class="form-control">
-                                                            <f:validateLength minimum="11" />
+                                                        <h:inputText h:type="number" value="#{registerBean.member.phone}"  id="PhoneNumber" h:placeholder="Phone Number" required="true" requiredMessage="Phone number is not null" validatorMessage=" Length is less than allowable minimum of 10"  class="form-control">
+                                                            <f:validateLength minimum="10" />
                                                         </h:inputText> 
                                                     </div>
-                                                    <span style="color:red" id="errPhone" class="help"></span>
+                                                    <span style="color:red"  id="errPhone" class="help"></span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Department</label>
                                                     <div class="controls">
-                                                        <select id="source" style="width:100%">
+<!--                                                        <select id="source" style="width:100%">
                                                             <option value="Educational Services">Educational Services</option>
                                                             <option value="Management Services">Management Services</option>
                                                             <option value="Learning Services">Learning Services</option>
                                                             <option value="Internal systems">Internal systems</option>
                                                             <option value="Human Resources">Human Resources</option>
-                                                        </select>
+                                                        </select>-->
+                                                         <h:selectOneMenu value="#{registerBean.member.department}">
+                                                                <f:selectItem itemValue="Educational Services" itemLabel="Educational Services" />
+                                                                <f:selectItem itemValue="Management Services" itemLabel="Management Services" />
+                                                                <f:selectItem itemValue="Learning Services" itemLabel="Learning Services" />
+                                                                <f:selectItem itemValue="Internal systems" itemLabel="Internal systems" />
+                                                                <f:selectItem itemValue="Human Resources" itemLabel="Human Resources" />
+                                                        </h:selectOneMenu>
                                                     </div>
-                                                    <div class="form-group">
+<!--                                                    <div class="form-group">
                                                         <label class="form-label">Avatar</label>
                                                         <div class="controls">
-                                                            <h:inputFile  id="avatar" h:placeholder="Avatar" class="form-control"/>
+                                                            <h:inputFile  validator="" id="avatar" h:placeholder="Avatar" class="form-control"/>
                                                         </div>
                                                         <span style="color:red" id="errAvatar" class="help"></span>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="pull-right">
-                                                        <h:commandButton value="Sava"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
-                                                        <a href="index.html" class="btn btn-white btn-cons">Detailt</a>
+                                                        <h:commandButton action="#{registerBean.insertMember}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                        <a href="index.html" class="btn btn-white btn-cons">Cancel</a>
                                                     </div>
                                                 </div>
                                             </h:form>
