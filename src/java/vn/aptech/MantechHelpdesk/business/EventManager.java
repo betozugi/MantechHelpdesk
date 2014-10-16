@@ -73,8 +73,8 @@ public class EventManager {
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("from Complaint c where c.status!=?");
-            q.setParameter(0, "da xong");
+            Query q= session.createQuery("from Complaint c where c.status=?");
+            q.setParameter(0, "0");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -91,7 +91,7 @@ public class EventManager {
         try{
             session.beginTransaction();
             Query q= session.createQuery("from Complaint c where c.status=?");
-            q.setParameter(0, "da xong");
+            q.setParameter(0, "2");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -119,24 +119,24 @@ public class EventManager {
         }
        return list;
    }
-   public Integer updateComplaint(int c){
-        Complaint complaint= new Complaint();
-        int result = 0;
+    public boolean updateComplaint(Complaint c){
+        boolean result = false;
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("update Complaint c set c.status=? where c.id = ?");
-            q.setParameter(0, "dang xu li");
-            q.setParameter(1, c);
-            result= q.executeUpdate();
-            
+            Technician tech = (Technician) session.get(Technician.class, c.getTechnician().getId());
+            c.setTechnician(tech);
+            session.saveOrUpdate(c);
             session.getTransaction().commit();
+            result=true;
+            return true;
         }catch(Exception ex){
+            result=false;
             ex.printStackTrace();
-            session.getTransaction().commit();
+            session.getTransaction().rollback();
         }finally{
             session.close();
         }
-        return result;
+        return false;
    }
 }

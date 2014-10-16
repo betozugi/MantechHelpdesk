@@ -11,6 +11,8 @@ import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Member;
+import vn.aptech.MantechHelpdesk.entities.Technician;
+import vn.aptech.MantechHelpdesk.util.HttpUtils;
 
 /**
  *
@@ -20,6 +22,15 @@ import vn.aptech.MantechHelpdesk.entities.Member;
 @RequestScoped
 public class ShowComplaintBean {
     private Complaint complaint;
+    private Technician technician =new Technician();
+    
+    public Technician getTechnician() {
+        return technician;
+    }
+
+    public void setTechnician(Technician technician) {
+        this.technician = technician;
+    }
     public  ShowComplaintBean(){
         complaint= new Complaint();
     }
@@ -38,11 +49,15 @@ public class ShowComplaintBean {
     public List<Complaint> findHistoryComplaint(){
         return EventManager.getInstance().findHistoryComplaint();
     }
-     public void updateComplaint(Complaint c){
-         
-        System.out.println("-------"+c.getIdUser());
-        if(EventManager.getInstance().updateComplaint(c.getIdUser())!=null){
-            
+    public void updateComplaint(Complaint c){
+         c.setTechnician(technician);
+        c.setStatus("1");
+        if(EventManager.getInstance().updateComplaint(c)){
+            HttpUtils.putToSession("idUser", c);
+            HttpUtils.addSuccessMessgae("Success", "Update successfully.");
+        }
+        else{
+            HttpUtils.addErrorMessgae("Error", "Update not success!");
         }
            
     }

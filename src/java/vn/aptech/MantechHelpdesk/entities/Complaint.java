@@ -1,14 +1,17 @@
 package vn.aptech.MantechHelpdesk.entities;
-// Generated Oct 16, 2014 2:59:49 PM by Hibernate Tools 3.6.0
+// Generated Oct 7, 2014 4:39:05 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,7 +33,7 @@ public class Complaint  implements java.io.Serializable {
 
      private int id;
      private Member member;
-     private Technician technician;
+     private Technician technician=new Technician();
      private Integer idUser;
      private String title;
      private String contents;
@@ -58,7 +61,7 @@ public class Complaint  implements java.io.Serializable {
     }
    
      @Id 
-
+     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     @Column(name="Id", unique=true, nullable=false)
     public int getId() {
@@ -69,8 +72,8 @@ public class Complaint  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="Id_technician")
+@ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="Id_user",insertable=false, updatable=false)
     public Member getMember() {
         return this.member;
     }
@@ -79,8 +82,8 @@ public class Complaint  implements java.io.Serializable {
         this.member = member;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="Id_technician", insertable=false, updatable=false)
+@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="Id_technician", insertable=true, updatable=true)
     public Technician getTechnician() {
         return this.technician;
     }
