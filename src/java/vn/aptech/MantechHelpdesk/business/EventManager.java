@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
+import vn.aptech.MantechHelpdesk.entities.Feedback;
 import vn.aptech.MantechHelpdesk.entities.Member;
 import vn.aptech.MantechHelpdesk.entities.Technician;
 import vn.aptech.MantechHelpdesk.util.HibernateUtil;
@@ -139,4 +140,25 @@ public class EventManager {
         }
         return false;
    }
+    public boolean insertFeedback(Feedback feedback) {
+    boolean insertFeedback = false;
+    Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//            Date date = new Date();
+//            member.setBirthday(date);
+            session.save(feedback);
+            insertFeedback = true;
+
+            session.getTransaction().commit();
+        }catch( Exception ex ){
+            ex.printStackTrace();
+            insertFeedback = false;
+        }finally{
+            session.close();
+        }
+        return insertFeedback;
+   }
+    
 }
