@@ -88,7 +88,7 @@ public class EventManager {
         try{
             session.beginTransaction();
             Query q= session.createQuery("from Technician t where t.statusTechnician=?");
-            q.setParameter(0, "dang ranh");
+            q.setParameter(0, "0");
             list=q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
