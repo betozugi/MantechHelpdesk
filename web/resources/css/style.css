@@ -4229,7 +4229,7 @@ background-position: -95px -40px;
     line-height: 20px;
     color: #5e5e5e;
     text-align: center;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     cursor: pointer;
     background-color: #d1dade;
     *border: 0;
