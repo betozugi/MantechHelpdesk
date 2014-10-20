@@ -20,9 +20,9 @@ public class Post  implements java.io.Serializable {
 
 
      private int id;
-     private Serializable title;
-     private Serializable datePost;
-     private Serializable contents;
+     private String title;
+     private String datePost;
+     private String contents;
 
     public Post() {
     }
@@ -31,7 +31,7 @@ public class Post  implements java.io.Serializable {
     public Post(int id) {
         this.id = id;
     }
-    public Post(int id, Serializable title, Serializable datePost, Serializable contents) {
+    public Post(int id, String title, String datePost, String contents) {
        this.id = id;
        this.title = title;
        this.datePost = datePost;
@@ -52,31 +52,31 @@ public class Post  implements java.io.Serializable {
 
     
     @Column(name="Title")
-    public Serializable getTitle() {
+    public String getTitle() {
         return this.title;
     }
     
-    public void setTitle(Serializable title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
     
     @Column(name="Date_post")
-    public Serializable getDatePost() {
+    public String getDatePost() {
         return this.datePost;
     }
     
-    public void setDatePost(Serializable datePost) {
+    public void setDatePost(String datePost) {
         this.datePost = datePost;
     }
 
     
     @Column(name="Contents")
-    public Serializable getContents() {
+    public String getContents() {
         return this.contents;
     }
     
-    public void setContents(Serializable contents) {
+    public void setContents(String contents) {
         this.contents = contents;
     }
 
