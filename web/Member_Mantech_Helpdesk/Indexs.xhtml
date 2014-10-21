@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Welcom To Mantech Helpdesk</title>
+        <h:outputScript library="js/jquery" name="jquery.min.js" />
+        <h:outputScript library="js/jquery" name="jquery.mb.YTPlayer.js" />
+        <h:outputScript library="js/jquery" name="jquery.flexslider-min.js" />
+        <h:outputScript library="js/jquery" name="jquery.parallax-1.1.3.js" />
+        <h:outputScript library="js/jquery" name="jquery.scrollTo-min.js" />
+        <h:outputScript library="js/jquery" name="jquery.magnific-popup.min.js" />
+        <h:outputScript library="js/bootstrap" name="bootstrap.min.js" />
+        <h:outputScript library="js" name="custom.script.js" />
+        <h:outputStylesheet name="./style/jquery/magnific-popup.css"   />
+        <h:outputStylesheet name="./style/animate/animate.css"   />
+        <h:outputStylesheet name="./style/font-awesome.min.css"   />
+        <h:outputStylesheet name="./style/bootstrap.min.css"   />
+        <h:outputStylesheet name="./style/switchcolor.css"   />
+        <h:outputStylesheet name="./style/style.css"   />
+        <h:outputStylesheet name="./style/template_color/yellow.color.css"   />
+        <h:outputStylesheet name="./style/template_color/turquoise.color.css"   />
+        <h:outputStylesheet name="./style/template_color/pink.color.css"   />
+        <h:outputStylesheet name="./style/template_color/purple.color.css"   />
+        <h:outputStylesheet name="./style/template_color/green.color.css"   />
+        <h:outputStylesheet name="./style/template_color/red.color.css"   />
+        <h:outputStylesheet name="./style/template_color/blue.color.css"   />
+        <h:outputStylesheet name="./style/template_color/lightgreen.color.css"   />
+        <h:outputStylesheet name="./style/template_color/lightred.color.css"   />
+    </h:head>
+    <h:body>
+        
+        <h:graphicImage id="preloader" alt="" library="img/preloader" name="preloader.GIF"/>
+        <header id="header" class="header">
+            <div class="container">
+                <a class="logo pull-left slide-page" href="#home">Mantech Helpdesk</a>
+                <em id="mobileMenu" class="glyph fa-bars mobile-menu"></em>
+                <nav id="mainNavi" class="main-navi pull-right">
+                    <a href="#home">Home</a>
+                    <a href="#restaurant">About</a>
+                    <a href="#menu">Technology News</a>
+                    <a href="#contacts">Login</a>
+                    <a href="#events">FAQ</a>
+                </nav> 
+            </div>            
+        </header>
+        <section id="home" class="home">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="slider-text-wrapper first">
+                            <div class="middle">Helpdesk</div>
+                            <div class="big">Helpdesk</div>
+                            <div class="dot"></div>
+                            <p>Mantech Limited wants to implement Customer Helpdesk Management for Technical Support. </p>
+                            <a class="button slide-page" href="#restaurant">
+                                <span>welcome</span>
+                                <span>Get started</span>
+                            </a>
+                        </div>
+                        <h:graphicImage alt="" library="img/big-slider" name="1.jpg"/>
+                    </li>
+                    <li>
+                        <div class="slider-text-wrapper second">
+                            <div class="middle">Technology News</div>
+                            <div class="big">Technology News</div>
+                            <div class="dot"></div>
+                            <p>The latest technology news and reviews, covering computing, home ...</p>
+                            <a class="button slide-page" href="#restaurant">
+                                <span>welcome</span>
+                                <span>Get started</span>
+                            </a>
+                        </div>
+                        <h:graphicImage alt="" library="img/big-slider" name="2.jpg"/>
+                    </li>
+                    <li>
+                        <div class="slider-text-wrapper third">
+                            <div class="middle">Online consultation</div>
+                            <div class="big">Online consultation</div>
+                            <div class="dot"></div>
+                            <p></p>
+                            <a class="button slide-page" href="#restaurant">
+                                <span>welcome</span>
+                                <span>Get started</span>
+                            </a>
+                        </div>
+                        <h:graphicImage alt="" library="img/big-slider" name="3.jpg"/>  
+                    </li>
+                </ul>
+            </div>
+            <h:graphicImage alt="" class="scroll-image" library="img/icons" name="scroll.png"/>     
+        </section>
+        <section id="restaurant" class="restaurant images-bg animate">
+            <div class="container">
+                <div class="title">
+                    <div>Welcome to</div>Mantech Helpdesk
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 restaurant-block">
+                        <h:graphicImage alt="" library="img/about" name="1.png"/>  
+                        <a href="#contacts"><div class="block-title">Helpdesk</div></a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 restaurant-block">
+                        <h:graphicImage alt="" library="img/about" name="2.png"/>  
+                        <a href="#menu"><div class="block-title">Technology News</div></a>
+                    </div>
+                </div>
+            </div>
+            <h:graphicImage alt="" library="img/about" name="1.jpg"/>      
+        </section>
+        <section id="menu" class="menu animate">
+            <div class="clearfix">
+                <c:forEach items="#{postBean.allPost}" var="row" varStatus="ssta">
+                    <div class="col-lg-3 col-md-3 col-sm-4 menu-block" style="overflow: hidden">
+                    
+                    <h:graphicImage alt="" library="img/post" name="${ssta.count}.jpg"/>   
+                    <div>
+                        <div class="position">
+                            <span>Hot</span>
+                        </div>
+                        <div class="food-name">#{row.title}</div>
+                        <div class="price">#{row.datePost}</div>
+                        <p class="food-details">#{row.contents}</p>
+                    </div>
+                </div>
+                </c:forEach>
+            </div>
+            <a class="more-food" href="#">
+                <em class="glyph fa-repeat"></em>
+                <span>show other dishes</span>
+            </a>
+        </section>
+        <section id="popup" class="popup">
+            <div class="clearfix">
+                <article class="col-lg-6 col-md-6 col-sm-6">
+                    <h:graphicImage alt="" library="img/post/big" name="1.jpg"/>   
+                </article>
+                <article class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="details-wrapper">
+                        
+                        <div class="food-name"></div>
+                        <p class="food-details mini"></p>
+                    </div>
+                </article>
+                <a href="#" class="button glyph prev fa-angle-left"></a>
+                <a href="#" class="button close-button">Close</a>
+                <a href="#" class="button glyph next fa-angle-right"></a>
+            </div>
+        </section>
+        <section id="events" class="events animate">
+            <div class="container">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <c:forEach items="#{fAQBean.listFAQ}" var="row">
+                        <li>
+                            <div class="title bottom">
+                                <div>#{row.question}</div>
+                               FAQ
+                            </div>
+                            <div class="dot"></div>
+                            <p class="mini">#{row.answer}</p>
+                            
+                        </li>
+                            </c:forEach>
+                    </ul>
+                </div>
+            </div>
+        </section>
+         <section class="comment animate">
+        </section>
+        <section id="contacts" class="contacts images-bg animate">            
+            <div class="container">
+                <div class="title">
+                   Login
+                </div>
+                <h:form>
+                    <p:growl id="growl" showDetail="true" sticky="true"/>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12 " >
+                            <h:inputText  value="#{memberLoginBean.member.username}"  h:placeholder="Username" h:type="text"/>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <h:inputSecret value="#{memberLoginBean.member.password}" id="Password" h:placeholder="Password" h:type="password"/>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 ">
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <h:commandButton action="#{memberLoginBean.getUser()}" value="Login"  class="button" id="submit" style="outline: none"></h:commandButton>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+            <h:graphicImage alt="" library="img/contacts" name="1.jpg"/>   
+        </section>
+        <footer class="footer">          
+            <div class="container">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="clearfix">
+                            <strong class="pull-left">Address</strong>
+                            <span>Aprotrain aptech<br></br>32 d2 Binh Thanh - Ho Chi Minh City<br></br><br></br></span>
+                        </div>                    
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="clearfix">
+                            <strong class="pull-left">Phone</strong>
+                            <span class="phone">+1 234-242-9599</span>
+                        </div>       
+                        <div class="clearfix">
+                            <strong class="pull-left">E-mail</strong>
+                            <a href="#">info@resteto.com</a>
+                        </div>                      
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="share-button">
+                            <a class="glyph fa-twitter" href="#"></a>
+                            <a class="glyph fa-facebook" href="#"></a>
+                            <a class="glyph fa-linkedin" href="#"></a>
+                            <a class="glyph fa-pinterest" href="#"></a>
+                            <a class="glyph fa-flickr" href="#"></a>
+                        </div>
+                        <span>©2014 .Mantech Helpdesk.</span>
+                    </div>
+                <a href="#home" class="glyph fa-angle-up move-up slide-page"></a>
+            </div>
+        </footer>
+        <section class="achievement images-bg animate" style="height:0">
+        </section><section id="reservation" class="reservation animate">
+        </section>
+       
+    </h:body>
+</html>
+

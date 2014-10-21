@@ -86,13 +86,13 @@
                                 <div class="user-details">
                                     <div class="username">
                                         <span class="badge badge-important">3</span>
-                                        <span class="bold">#{memberLoginBean.session.username}</span>
+                                        <span class="bold">#{memberLoginBean.session.fullname}</span>
                                     </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
                             <div class="profile-pic">
-                                <h:graphicImage library="img/profiles" name="#{memberLoginBean.session.avatar}"  h:width="35" h:height="35" />
+                                <h:graphicImage library="img/avatar" name="#{memberLoginBean.session.avatar}"  h:width="35" h:height="35" />
                             </div>
                         </div>
                         <ul class="nav quick-section ">
@@ -108,7 +108,7 @@
                                         <a href="Index.xhtml">Information</a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li><a href="Login.xhtml"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+                                    <li><a href="Index.xhtml"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -122,17 +122,17 @@
                 <div class="user-info-wrapper">
                     <div class="profile-wrapper">
                         
-                        <h:graphicImage library="img/profiles" name="#{memberLoginBean.session.avatar}" alt="" h:data-src="design/img/profiles/avatar.jpg" h:data-src-retina="design/img/profiles/avatar2x.jpg" width="69" height="69" />
+                        <h:graphicImage library="img/avatar" name="#{memberLoginBean.session.avatar}" alt=""  width="69" height="69" />
                     </div>
                     <div class="user-info">
                         <div class="greeting" style="font-size:15px">Welcome</div>
-                        <div class="username" style="font-size:18px;">Dong<span class="semi-bold">Phuong</span></div>
+                        <div class="username" style="font-size:18px;">#{memberLoginBean.session.fullname}</div>
                     </div>
                 </div>
                 <br /><br /><br /><br />
                 <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
                 <ul>
-                    <li class="start active "> <a style="text-decoration:none" href="Index.xhtml"> <i class="fa fa-home"></i> <span class="title">Home</span> </a> </li>
+                    <li class="start active "> <a style="text-decoration:none" href="Home.xhtml"> <i class="fa fa-home"></i> <span class="title">Home</span> </a> </li>
                     <li class="">
                         <a style="text-decoration:none" href="javascript:;"> <i class="fa fa-ioxhost"></i> <span class="title">Complains</span> <span class="arrow "></span> </a>
                         <ul class="sub-menu">
@@ -149,7 +149,7 @@
                     </li>
                     <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-line-chart"></i> <span class="title">Reports</span> </a> </li>
                     <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-newspaper-o"></i> <span class="title">Newspaper</span> </a> </li>
-                    <li class="start active "> <a  style="text-decoration:none" href="#"> <i class="fa fa-question-circle"></i> <span class="title">FAQ</span> </a> </li>
+                    <li class="start active "> <a  style="text-decoration:none" href="FAQ.xhtml"> <i class="fa fa-question-circle"></i> <span class="title">FAQ</span> </a> </li>
                 </ul>
                 <a href="#" class="scrollup">Scroll</a>
                 <div class="clearfix"></div>

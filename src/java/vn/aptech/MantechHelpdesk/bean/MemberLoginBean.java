@@ -43,6 +43,7 @@ public class MemberLoginBean {
             return "/Member_Mantech_Helpdesk/Home.xhtml";
         }
         else{
+            HttpUtils.addErrorMessgae("error", "Username or password incorrect");
             return null;
         }
     }
