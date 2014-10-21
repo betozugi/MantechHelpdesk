@@ -6,7 +6,10 @@
 
 package vn.aptech.MantechHelpdesk.business;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -160,5 +163,26 @@ public class EventManager {
         }
         return insertFeedback;
    }
+     //insert complaint nè
     
+    public boolean insertComplaint(Complaint complaint) {
+    boolean insertResult = false;
+    Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            complaint.setDateComplaint(date);
+            session.save(complaint);
+            insertResult = true;
+
+            session.getTransaction().commit();
+        }catch( Exception ex ){
+            ex.printStackTrace();
+            insertResult = false;
+        }finally{
+            session.close();
+        }
+        return insertResult;
+   }
 }

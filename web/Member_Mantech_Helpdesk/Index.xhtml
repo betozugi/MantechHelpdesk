@@ -44,6 +44,13 @@
 
     <h:body>
         <h:form>
+            <script>
+                var isLogin= #{memberLoginBean.logined};
+                if(isLogin===true){
+                    window.location='Home.xhtml';
+                }
+                
+            </script>
             <g:growl id="growl" showDetail="true" sticky="true"/>
             <div class="header navbar navbar-inverse ">
                 <div class="navbar-inner">

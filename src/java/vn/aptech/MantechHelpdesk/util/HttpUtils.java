@@ -47,5 +47,4 @@ public class HttpUtils {
             FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, detail);
             FacesContext.getCurrentInstance().addMessage(null, fm);
     }
-    
 }

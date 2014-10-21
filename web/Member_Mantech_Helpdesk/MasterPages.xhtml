@@ -40,7 +40,15 @@
     </h:head>
 
     <h:body>
-
+        <h:form>
+            <script>
+                var isLogin= #{memberLoginBean.logined};
+                if(isLogin===false){
+                    window.location='Index.xhtml';
+                }
+                
+            </script>
+            
         <div class="header navbar navbar-inverse ">
             <div class="navbar-inner">
                 <div class="header-seperation" style="display:none">
@@ -108,7 +116,8 @@
                                         <a href="Index.xhtml">Information</a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li><a href="Index.xhtml"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+<!--                                    <li><a href="Index.xhtml"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>-->
+<li> <h:commandButton action="#{memberLoginBean.Logout()}"></h:commandButton></li>
                                 </ul>
                             </li>
                         </ul>
@@ -197,6 +206,8 @@
 			$("#quick-access").css("bottom","0px");				
 		});		
 	</script> 
+        
+        </h:form>
     </h:body>
 
 </html>

@@ -23,7 +23,7 @@ public class LoginBean {
 
     public LoginBean(){
         admin.setAdname("admin");
-        admin.setAdpass("123456");
+        admin.setAdpass("1");
     }
     public Admin getAdmin() {
         return admin;
@@ -33,9 +33,9 @@ public class LoginBean {
         this.admin = admin;
     }
     public String login(){
-        if(EventManager.getInstance().checkAdmin(admin) != null){
-            HttpUtils.putToSession("admin", admin.getAdname());
-            HttpUtils.putToSession("avatar", admin.getAvatar());
+        admin=EventManager.getInstance().checkAdmin(admin);
+        if(admin != null){
+            HttpUtils.putToSession("admin",admin);
             
             return "/Admin_Mantech_Helpdesk/Index.xhtml";
             
@@ -51,7 +51,8 @@ public class LoginBean {
        return  HttpUtils.getFullURL();
     }
     public String getSession(){
-        return  String.valueOf(HttpUtils.getFromSession("admin"));
+        admin=(Admin) HttpUtils.getFromSession("admin");
+        return  String.valueOf(admin.getAdname());
     }
     
     public boolean isLogined(){
@@ -60,5 +61,9 @@ public class LoginBean {
         }
         return false;
         
+    }
+    public String Logout(){
+        HttpUtils.putToSession("admin", null);
+        return "/Login";
     }
 }

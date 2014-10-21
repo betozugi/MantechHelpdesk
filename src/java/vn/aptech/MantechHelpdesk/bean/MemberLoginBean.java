@@ -58,4 +58,15 @@ public class MemberLoginBean {
             m= (Member)HttpUtils.getFromSession("User");
             return m;
     }
+    public boolean isLogined(){
+        if(HttpUtils.getFromSession("User")!=null){
+            return true;
+        }
+        return false;
+        
+    }
+    public String Logout(){
+        HttpUtils.putToSession("User", null);
+        return "/Index"; 
+    }
 }

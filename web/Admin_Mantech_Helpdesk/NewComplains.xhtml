@@ -105,7 +105,7 @@
                                                                                                     <f:selectItems value="#{showTechinicianBean.getFreeTechnician()}" var="techrow" itemValue="#{techrow.id}" itemLabel="#{techrow.fullname}"/>
                                                                                                 </h:selectOneMenu>
                                                                                                 <h4 class="semi-bold no-margin" style="text-align: left">FEEDBACK</h4>
-                                                                                                <h:inputTextarea style="width: 100%;height: 100%" class="form-control" f:placeholder="Feedback"></h:inputTextarea>
+                                                                                                <h:inputTextarea value="#{showComplaintBean.feedback.contents}" style="width: 100%;height: 100%" class="form-control" f:placeholder="Feedback"></h:inputTextarea>
                                                                                                 <br></br>
                                                                                                 <br></br>
                                                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

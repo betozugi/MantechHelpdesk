@@ -9,7 +9,9 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
+import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
+import vn.aptech.MantechHelpdesk.entities.Feedback;
 import vn.aptech.MantechHelpdesk.entities.Member;
 import vn.aptech.MantechHelpdesk.entities.Technician;
 import vn.aptech.MantechHelpdesk.util.HttpUtils;
@@ -22,7 +24,22 @@ import vn.aptech.MantechHelpdesk.util.HttpUtils;
 @RequestScoped
 public class ShowComplaintBean {
     private Complaint complaint;
-    private Technician technician =new Technician();
+    private Technician technician;
+    private Feedback feedback;
+    private Admin admin=new Admin();
+    public ShowComplaintBean(){
+        feedback=new Feedback();
+        complaint=new Complaint();
+        technician =new Technician();
+        
+    }
+    public Feedback getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(Feedback feedback) {
+        this.feedback = feedback;
+    }
     
     public Technician getTechnician() {
         return technician;
@@ -30,9 +47,6 @@ public class ShowComplaintBean {
 
     public void setTechnician(Technician technician) {
         this.technician = technician;
-    }
-    public  ShowComplaintBean(){
-        complaint= new Complaint();
     }
 
     
@@ -55,6 +69,18 @@ public class ShowComplaintBean {
         if(EventManager.getInstance().updateComplaint(c)){
             HttpUtils.putToSession("idUser", c);
             HttpUtils.addSuccessMessgae("Success", "Update successfully.");
+            complaint=c;
+            System.out.println(complaint.getId());
+            feedback.setComplaint(complaint);
+            admin = (Admin) HttpUtils.getFromSession("admin");
+            feedback.setAdmin(admin);
+            if(EventManager.getInstance().insertFeedback(feedback)){
+                 HttpUtils.addSuccessMessgae("Success", "Send feedback successfully.");
+            }
+            else
+            {
+                HttpUtils.addErrorMessgae("Error", "Send feedback not success!");
+            }
         }
         else{
             HttpUtils.addErrorMessgae("Error", "Update not success!");
