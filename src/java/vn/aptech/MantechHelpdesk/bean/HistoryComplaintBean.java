@@ -12,6 +12,7 @@ import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.MemberEventManager;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Feedback;
+import vn.aptech.MantechHelpdesk.util.HttpUtils;
 
 /**
  *
@@ -38,7 +39,8 @@ public class HistoryComplaintBean {
     }
     public String getIdComplaint(){
         if(MemberEventManager.getInstance().getIdComplaint(complaint)!=null){
-            System.out.println(complaint.getId());
+//            System.out.println(complaint.getId());
+          
             return "/Member_Mantech_Helpdesk/Feedback.xhtml";
         }else{
             return null;

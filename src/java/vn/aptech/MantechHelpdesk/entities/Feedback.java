@@ -3,6 +3,7 @@ package vn.aptech.MantechHelpdesk.entities;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +29,7 @@ public class Feedback  implements java.io.Serializable {
      private Complaint complaint;
      private Admin admin;
      private Member member;
-     private String dateFeedback;
+     private Date dateFeedback;
      private String contents;
 
     public Feedback() {
@@ -38,7 +39,7 @@ public class Feedback  implements java.io.Serializable {
     public Feedback(int id) {
         this.id = id;
     }
-    public Feedback(int id, Complaint complaint, Admin admin, Member member, String dateFeedback, String contents) {
+    public Feedback(int id, Complaint complaint, Admin admin, Member member, Date dateFeedback, String contents) {
        this.id = id;
        this.complaint = complaint;
        this.admin = admin;
@@ -91,11 +92,11 @@ public class Feedback  implements java.io.Serializable {
 
     
     @Column(name="Date_feedback")
-    public String getDateFeedback() {
+    public Date getDateFeedback() {
         return this.dateFeedback;
     }
     
-    public void setDateFeedback(String dateFeedback) {
+    public void setDateFeedback(Date dateFeedback) {
         this.dateFeedback = dateFeedback;
     }
 

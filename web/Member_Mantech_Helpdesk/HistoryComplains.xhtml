@@ -66,8 +66,8 @@
                                                                         <td>#{row.dateComplaint}</td>
                                                                         <td><span class="muted">#{row.status}</span></td>
                                                                         <td style="text-align: right">
-                                                                            <button class="btn btn-lg" data-toggle="modal" data-target="#myModal${ssta.count}">DETAIL</button>
-                                                                            <div class="modal fade" id="myModal${ssta.count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                                                            <button class="btn btn-lg" data-toggle="modal" data-target="#myModal${ssta.count}#{row.id}">DETAIL</button>
+                                                                            <div class="modal fade" id="myModal${ssta.count}#{row.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                                                                                     <div class="modal-dialog">
                                                                                         <div class="modal-content">
                                                                                             <div class=" tiles white col-md-12 no-padding">
@@ -97,11 +97,14 @@
                                                                                             </div>
                                                                                             <div class="modal-footer" style="background-color: white">
                                                                                                 <h4 class="semi-bold no-margin" style="text-align: left">FEEDBACK</h4>
-                                                                                                <h:inputTextarea style="width: 100%;height: 100%" class="form-control" f:placeholder="Feedback"></h:inputTextarea>
+                                                                                                <h:inputTextarea value="#{feedbackMemberBean.feedback.contents}" style="width: 100%;height: 100%" requiredMessage="Question is not null" validatorMessage="Contents have to > 10 character" class="form-control"  f:placeholder="Feedback">
+                                                                                                    <f:validateLength minimum="10" />
+                                                                                                </h:inputTextarea>
                                                                                                 <br></br>
+                                                                                                <h:message style="color: red" for="Contents"/>
                                                                                                 <br></br>
                                                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                                                <h:commandButton action="#{showComplaintBean.updateComplaint(row)}"  class="btn btn-primary" value="Save changes" />
+                                                                                                <h:commandButton action="#{feedbackMemberBean.sendFeedbackMember(row)}"  class="btn btn-primary" value="Save changes" />
                                                                                             </div>
                                                                                             <div class="col-md-12 col-vlg-12">
                                                                                                 <ul class="cbp_tmtimeline">

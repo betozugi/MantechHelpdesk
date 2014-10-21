@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import vn.aptech.MantechHelpdesk.business.FAQManager;
 import vn.aptech.MantechHelpdesk.entities.Faq;
+import vn.aptech.MantechHelpdesk.util.HttpUtils;
 
 /**
  *
@@ -33,5 +34,12 @@ public class FAQBean {
     public List<Faq> getListFAQ(){
         return FAQManager.getInstance().getListFAQ();
     }
-    
+    public String insertFAQ(){
+        if(FAQManager.getInstance().insertFAQ(faq)){
+            HttpUtils.addSuccessMessgae("Success", "Create new FAQ successfully!");
+        }else{
+            HttpUtils.addErrorMessgae("Error", "Create new FAQ fail!");
+        }
+        return "/Member_Mantech_Helpdesk/FAQ.xhtml";
+    }
 }

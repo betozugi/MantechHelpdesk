@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Post</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                <div class="content" style="padding-top:0px">
+                    <div class="page-title">
+                        <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
+                        <h3>Post- <span class="semi-bold">Create FAQ</span></h3>
+                        <p:growl id="growl" showDetail="true" sticky="true"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid simple">
+                                <div class="grid-title no-border">
+                                    <h4>Post <span class="semi-bold">FAQ</span></h4>
+                                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                                </div>
+                                <div class="grid-body no-border">
+                                    <br></br>
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <h:form id="form" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label class="form-label">Question</label>
+                                                    <!--<span class="help">e.g. "nhocsiro"</span>-->
+                                                    <div class="controls">
+                                                        <h:inputText id="Username" value="#{fAQBean.faq.question}" h:type="text" h:placeholder="Question" required="true" requiredMessage="Question is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                            <f:validateLength minimum="3" />
+                                                        </h:inputText>
+                                                    </div>
+                                                    <h:message style="color: red" for="Question"/>
+                                                    <span style="color:red" id="errUsername" class="help"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Answer</label>
+                                                    <!--<span class="help">e.g. "some@example.com"</span>-->
+                                                    <div class="controls">
+                                                        <h:inputTextarea h:type="text" value="#{fAQBean.faq.answer}" id="Answer" h:placeholder="Answer" required="true" requiredMessage="Answer is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
+                                                            <f:validateLength minimum="10" />
+                                                        </h:inputTextarea>
+                                                    </div>
+                                                    <h:message style="color: red" for="Answer"/>
+                                                
+                                                    <div class="pull-right">
+                                                        <h:commandButton action="#{fAQBean.insertFAQ()}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                        <a href="index.html" class="btn btn-white btn-cons">Cancel</a>
+                                                    </div>
+                                                </div>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+</html>

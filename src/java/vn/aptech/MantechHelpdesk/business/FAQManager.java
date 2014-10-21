@@ -40,4 +40,20 @@ public class FAQManager {
         }
         return list;
     }
+    public boolean insertFAQ(Faq faq){
+        boolean result= false;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            session.save(faq);
+            result= true;
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return result;
+    }
 }
