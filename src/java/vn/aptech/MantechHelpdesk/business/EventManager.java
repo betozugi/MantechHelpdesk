@@ -95,7 +95,7 @@ public class EventManager {
         try{
             session.beginTransaction();
             Query q= session.createQuery("from Complaint c where c.status=?");
-            q.setParameter(0, "1");
+            q.setParameter(0, "2");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -185,4 +185,22 @@ public class EventManager {
         }
         return insertResult;
    }
+
+    public List<Complaint> findComplainting() {
+        List<Complaint> list= new ArrayList<Complaint>();
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.status=?");
+            q.setParameter(0, "1");
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return list;
+    }
 }

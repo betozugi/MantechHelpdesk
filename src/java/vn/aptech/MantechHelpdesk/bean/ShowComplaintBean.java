@@ -9,6 +9,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
@@ -61,6 +62,9 @@ public class ShowComplaintBean {
     public List<Complaint> findNewComplaint(){
         return EventManager.getInstance().findNewComplaint();
     }
+    public List<Complaint> findComplainting(){
+        return EventManager.getInstance().findComplainting();
+    }
     public List<Complaint> findHistoryComplaint(){
         return EventManager.getInstance().findHistoryComplaint();
     }
@@ -88,10 +92,13 @@ public class ShowComplaintBean {
         }
            
     }
-    public String sendFeedback(){
+    public String sendFeedback(Complaint c){
+        feedback.setComplaint(c);
+        admin = (Admin) HttpUtils.getFromSession("admin");
+        feedback.setAdmin(admin);
         if(EventManager.getInstance().insertFeedback(feedback)){
                  HttpUtils.addSuccessMessgae("Success", "Send feedback successfully.");
-                 return "HistoryComplains";
+                 return "HistoryComplaints";
             }
             else
             {
