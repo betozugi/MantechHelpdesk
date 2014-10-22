@@ -40,6 +40,6 @@ public class FAQBean {
         }else{
             HttpUtils.addErrorMessgae("Error", "Create new FAQ fail!");
         }
-        return "/Member_Mantech_Helpdesk/FAQ.xhtml";
+        return "/Member_Mantech_Helpdesk/PostFAQ.xhtml";
     }
 }

@@ -10,67 +10,168 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:g="http://xmlns.jcp.org/jsf/passthrough">
     <head>
         <title>Post</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <ui:composition template="./MasterPages.xhtml">
 
-            <ui:define name="top">
+        <ui:define name="top">
+            <h:form id="form" enctype="multipart/form-data">
                 <div class="content" style="padding-top:0px">
+
                     <div class="page-title">
                         <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
                         <h3>Post- <span class="semi-bold">Create FAQ</span></h3>
                         <p:growl id="growl" showDetail="true" sticky="true"/>
-                    </div>
-                    <div class="row">
                         <div class="col-md-12">
-                            <div class="grid simple">
-                                <div class="grid-title no-border">
-                                    <h4>Post <span class="semi-bold">FAQ</span></h4>
-                                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                            <div class="content" style="padding-top:0px">
+                                <div class="page-title">
+                                    <div class="pull-right actions">
+                                        <button class="btn btn-primary btn-cons" type="button" id="btn-new-ticket">New FAQ</button>
+                                    </div>
                                 </div>
-                                <div class="grid-body no-border">
-                                    <br></br>
-                                    <div class="row">
-                                        <div class="col-md-8 col-sm-8 col-xs-8">
-                                            <h:form id="form" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label class="form-label">Question</label>
-                                                    <!--<span class="help">e.g. "nhocsiro"</span>-->
-                                                    <div class="controls">
-                                                        <h:inputText id="Username" value="#{fAQBean.faq.question}" h:type="text" h:placeholder="Question" required="true" requiredMessage="Question is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
-                                                            <f:validateLength minimum="3" />
-                                                        </h:inputText>
+                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="grid simple transparent" id="new-ticket-wrapper" style="display:none">
+                                            <div class="grid-title no-border">
+                                            </div>
+                                            <div class="grid-body">
+                                                <h:form class="" id="new-ticket-form">
+                                                    <div class="row form-row">
+                                                        <div class="col-md-12">
+                                                            <h:inputText id="Username" value="#{fAQBean.faq.question}" h:type="text" g:placeholder="Question" required="true" requiredMessage="Question is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                                <f:validateLength minimum="3" />
+                                                            </h:inputText>
+                                                            <h:message style="color: red" for="Question"/>
+                                                            <span style="color:red" id="errUsername" class="help"></span>
+                                                        </div>
                                                     </div>
-                                                    <h:message style="color: red" for="Question"/>
-                                                    <span style="color:red" id="errUsername" class="help"></span>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="form-label">Answer</label>
-                                                    <!--<span class="help">e.g. "some@example.com"</span>-->
-                                                    <div class="controls">
-                                                        <h:inputTextarea h:type="text" value="#{fAQBean.faq.answer}" id="Answer" h:placeholder="Answer" required="true" requiredMessage="Answer is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
-                                                            <f:validateLength minimum="10" />
-                                                        </h:inputTextarea>
-                                                    </div>
+                                                    <h:inputTextarea h:type="text" value="#{fAQBean.faq.answer}" id="Answer" g:placeholder="Answer" required="true" requiredMessage="Answer is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
+                                                        <f:validateLength minimum="10" />
+                                                    </h:inputTextarea>
                                                     <h:message style="color: red" for="Answer"/>
-                                                
-                                                    <div class="pull-right">
-                                                        <h:commandButton action="#{fAQBean.insertFAQ()}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
-                                                        <a href="index.html" class="btn btn-white btn-cons">Cancel</a>
+                                                    <div class="row form-row">
+                                                        <div class="col-md-12 margin-top-10">
+                                                            <div class="pull-right">
+                                                                <button class="btn btn-cons" type="button" id="btn-close-ticket">Close</button>
+                                                                <h:commandButton action="#{fAQBean.insertFAQ()}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </h:form>
+                                                </h:form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </ui:define>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid simple">
+                                <div class="grid-body no-border">
+                                    <br></br>
+                                    <!--                                    <div class="row">
+                                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                                <h:form id="form" enctype="multipart/form-data">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label">Question</label>
+                                                                                        <span class="help">e.g. "nhocsiro"</span>
+                                                                                        <div class="controls">
+                                                                                            <h:inputText id="Username" value="#{fAQBean.faq.question}" h:type="text" h:placeholder="Question" required="true" requiredMessage="Question is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                                                                <f:validateLength minimum="3" />
+                                                                                            </h:inputText>
+                                                                                        </div>
+                                                                                        <h:message style="color: red" for="Question"/>
+                                                                                        <span style="color:red" id="errUsername" class="help"></span>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label">Answer</label>
+                                                                                        <span class="help">e.g. "some@example.com"</span>
+                                                                                        <div class="controls">
+                                                                                            <h:inputTextarea h:type="text" value="#{fAQBean.faq.answer}" id="Answer" h:placeholder="Answer" required="true" requiredMessage="Answer is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
+                                                                                                <f:validateLength minimum="10" />
+                                                                                            </h:inputTextarea>
+                                                                                        </div>
+                                                                                        <h:message style="color: red" for="Answer"/>
+                                                                                    
+                                                                                        <div class="pull-right">
+                                                                                            <h:commandButton action="#{fAQBean.insertFAQ()}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                                                            <a href="index.html" class="btn btn-white btn-cons">Cancel</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </h:form>
+                                                                            </div>
+                                                                        </div>-->
 
-        </ui:composition>
+                                    <div class="row-fluid">
+                                        <div class="row-fluid dataTables_wrapper">
+
+                                            <h2 class=" inline">FAQ </h2>
+
+                                        </div>
+
+                                        <div id="email-list">
+                                            <h:form>
+                                                <table class="table table-striped table-fixed-layout table-hover" id="emails">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Question</th>
+                                                            <th>Answer</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <c:forEach items="#{fAQBean.listFAQ}" var="row" varStatus="ssta">
+                                                            <tr>
+                                                                <td>#{row.question}</td>
+                                                                <td>#{row.answer}</td>
+                                                                <td  style="text-align: right">
+                                                                    <button class="btn btn-lg" data-toggle="modal" data-target="#myModal${ssta.count}">READ</button>
+                                                                    <div class="modal fade" id="myModal${ssta.count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class=" tiles white col-md-12 no-padding">
+                                                                                    <div class="tiles white">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-11 user-description-box  col-sm-11" style="text-align: left">
+                                                                                                <div class="user-mini-description">
+                                                                                                    <h4 class="semi-bold no-margin">#{row.question}</h4>
+                                                                                                    <br></br>
+                                                                                                    <br></br>
+                                                                                                    <p style="white-space: initial">
+                                                                                                        #{row.answer}
+                                                                                                    </p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer" style="background-color: white">
+                                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </tbody>
+                                                </table>
+                                            </h:form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
 </html>
