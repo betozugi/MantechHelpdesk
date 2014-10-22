@@ -95,7 +95,7 @@ public class EventManager {
         try{
             session.beginTransaction();
             Query q= session.createQuery("from Complaint c where c.status=?");
-            q.setParameter(0, "2");
+            q.setParameter(0, "1");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -148,9 +148,9 @@ public class EventManager {
     Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-//            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-//            Date date = new Date();
-//            member.setBirthday(date);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            feedback.setDateFeedback(date);
             session.save(feedback);
             insertFeedback = true;
 

@@ -8,6 +8,7 @@ package vn.aptech.MantechHelpdesk.bean;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
@@ -21,7 +22,7 @@ import vn.aptech.MantechHelpdesk.util.HttpUtils;
  * @author ngocyen
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class ShowComplaintBean {
     private Complaint complaint;
     private Technician technician;
@@ -86,6 +87,19 @@ public class ShowComplaintBean {
             HttpUtils.addErrorMessgae("Error", "Update not success!");
         }
            
+    }
+    public String sendFeedback(){
+        if(EventManager.getInstance().insertFeedback(feedback)){
+                 HttpUtils.addSuccessMessgae("Success", "Send feedback successfully.");
+                 return "HistoryComplains";
+            }
+            else
+            {
+                HttpUtils.addErrorMessgae("Error", "Send feedback not success!");
+                return null;
+            }
+        
+        
     }
     
 }
