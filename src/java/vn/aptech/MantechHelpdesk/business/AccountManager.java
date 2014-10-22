@@ -57,22 +57,31 @@ public class AccountManager {
         }
         return m;
     }
-    public boolean updateMember(Member m){
+    public boolean updateMember(Member mOld){
         Boolean result=false;
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("update Member m set m.username = ?, m.email = ?, m.fullname = ?, m.birthday = ?, m. address = ?, m.sex = ?, m.phone = ?, m.department = ? where m.id=? ");
-            q.setParameter(0, m.getUsername());
-            q.setParameter(0, m.getEmail());
-            q.setParameter(0, m.getFullname());
-            q.setParameter(0, m.getBirthday());
-            q.setParameter(0, m.getAddress());
-            q.setParameter(0, m.getSex());
-            q.setParameter(0, m.getPhone());
-            q.setParameter(0, m.getDepartment());
-            q.setParameter(0, m.getId());
-            q.executeUpdate();
+            Query q= session.createQuery("from Member m where m.id = ?");
+            q.setParameter(0, mOld.getId());
+            Member m = (Member)q.uniqueResult();
+            System.out.println(m +""+ mOld.getId());
+            m.setAddress(mOld.getAddress());
+//            m.setAvatar(mOld.getAvatar());
+            m.setBirthday(mOld.getBirthday());
+            m.setComplaints(mOld.getComplaints());
+            m.setDepartment(mOld.getDepartment());
+            m.setEmail(mOld.getEmail());
+            m.setFeedbacks(mOld.getFeedbacks());
+            m.setFullname(mOld.getFullname());
+            m.setId(mOld.getId());
+//            m.setPassword(mOld.getPassword());
+            m.setPhone(mOld.getPhone());
+            m.setSex(mOld.getSex());
+            m.setUsername(mOld.getUsername());
+            
+            
+            session.saveOrUpdate(m);
             result=true;
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -86,4 +95,21 @@ public class AccountManager {
 //    public static void main(String[] args) {        
 //        System.out.println(AccountManager.getInstance().getIdMember();
 //    }
+    public Member findIdMember(int id){
+        Member m= null;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Member m where m.id = ?");
+            q.setParameter(0, id);
+            m= (Member)q.uniqueResult();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return m;
+    }
 }

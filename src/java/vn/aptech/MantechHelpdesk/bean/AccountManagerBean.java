@@ -8,19 +8,35 @@ package vn.aptech.MantechHelpdesk.bean;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import vn.aptech.MantechHelpdesk.business.AccountManager;
+import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.entities.Member;
+import vn.aptech.MantechHelpdesk.entities.Technician;
+import vn.aptech.MantechHelpdesk.util.HibernateUtil;
+import vn.aptech.MantechHelpdesk.util.HttpUtils;
 
 /**
  *
  * @author ngocyen
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class AccountManagerBean {
-    private Member member;
+    private Member member =new Member();
+    
+    
+    
     public AccountManagerBean(){
-        member= new Member();
+//        member= new Member();
+        System.out.println(" AccountManagerBean()");
     }
 
     public Member getMember() {
@@ -42,10 +58,33 @@ public class AccountManagerBean {
         }
     }
     public String updateMember(){
-        if(AccountManager.getInstance().updateMember(member)!=false){
-            return "/Admin_Mantech_Helpdesk/AccountManager.xhtml";
+        System.out.println(".......................................................................");
+        System.out.println(member.getId());
+        if(AccountManager.getInstance().updateMember(member)==true){
+            HttpUtils.addSuccessMessgae("Success", "Edit account successfully.");
+            return "/Admin_Mantech_Helpdesk/AccountManager";
         }else{
+            HttpUtils.addErrorMessgae("Error", "Edit member error!");
             return null;
         }
     }
+    @FacesConverter(forClass = Member.class)
+    public class MemberConverter implements Converter{
+
+        @Override
+        public Object getAsObject(FacesContext fc, UIComponent uic, String pk) {
+                return AccountManager.getInstance().findIdMember(Integer.valueOf(pk));
+             }
+
+        @Override
+        public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+            return ""+ ((Member)o).getId();
+        }
+
+        public MemberConverter() {
+        }
+        
+        
+    }
+     
 }

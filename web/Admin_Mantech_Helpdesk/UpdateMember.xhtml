@@ -3,7 +3,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -12,7 +13,7 @@
             <ui:define name="top">
                 <div class="content" style="padding-top:0px">
                     <div class="page-title">
-                        <a href="AccountManager.xhtml"><i class="icon-custom-left"></i></a>
+                        <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
                         <h3>Accout- <span class="semi-bold">Update Member</span></h3>
                     </div>
                     <div class="row">
@@ -27,8 +28,12 @@
                                     <div class="row">
                                         <div class="col-md-8 col-sm-8 col-xs-8">
                                             <h:form id="form" enctype="multipart/form-data">
-                                                <div class="form-group">
+                                                 <p:growl id="growl" showDetail="true" sticky="true"/>
+                                                 
+                                                   
+                                                <div  class="form-group">
                                                     <label class="form-label">Username</label>
+                                                    
                                                     <span class="help">e.g. "nhocsiro"</span>
                                                     <div class="controls">
                                                         <h:inputText id="Username" value="#{accountManagerBean.member.username}" h:type="text" h:placeholder="Username" required="true" requiredMessage="Username is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
@@ -64,10 +69,10 @@
                                                 <!-- Khong dung co 2 cai nay no khong lien quan-->
                                                 <input type="checkbox" class="ios" />
                                                 <input type="checkbox" class="iosblue" />
-<!--                                                <div class="input-append success date col-md-10 col-lg-6 no-padding">
-                                                    <h:inputText h:type="text" value="{accountManagerBean.member.birthday}" id="Birthday" h:placeholder="Birthday" required="true" requiredMessage="Birthday is not null" style="" disabled="disabled" class="form-control"/>
+                                                <div class="input-append success date col-md-10 col-lg-6 no-padding">
+                                                    <h:inputText h:type="text" value="#{accountManagerBean.member.birthday}" id="Birthday" h:placeholder="Birthday" required="true" requiredMessage="Birthday is not null" style="" disabled="disabled" class="form-control"/>
                                                     <span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
-                                                </div>-->
+                                                </div>
                                                 <br></br><br></br><br></br>
                                                 <h:message style="color: red" for="Birthday"/>
                                                 <div class="form-group">
@@ -103,13 +108,6 @@
                                                 <div class="form-group">
                                                     <label class="form-label">Department</label>
                                                     <div class="controls">
-<!--                                                        <select id="source" style="width:100%">
-                                                            <option value="Educational Services">Educational Services</option>
-                                                            <option value="Management Services">Management Services</option>
-                                                            <option value="Learning Services">Learning Services</option>
-                                                            <option value="Internal systems">Internal systems</option>
-                                                            <option value="Human Resources">Human Resources</option>
-                                                        </select>-->
                                                         <h:selectOneMenu value="#{accountManagerBean.member.department}">
                                                             <f:selectItem itemValue="Educational Services" itemLabel="Educational Services" />
                                                             <f:selectItem itemValue="Management Services" itemLabel="Management Services" />
@@ -122,7 +120,7 @@
                                                     
                                                     <div class="pull-right">
                                                         <h:commandButton value="Save" action="#{accountManagerBean.updateMember()}"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
-                                                        <a href="index.xhtml" class="btn btn-white btn-cons">Detail</a>
+                                                        <a href="AccountManager.xhtml" class="btn btn-white btn-cons">Close</a>
                                                     </div>
                                                 </div>
                                             </h:form>
