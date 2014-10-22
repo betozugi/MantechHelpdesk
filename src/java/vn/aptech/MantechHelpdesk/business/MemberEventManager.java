@@ -14,6 +14,7 @@ import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Feedback;
 import vn.aptech.MantechHelpdesk.entities.Member;
 import vn.aptech.MantechHelpdesk.entities.Post;
+import vn.aptech.MantechHelpdesk.entities.Technician;
 import vn.aptech.MantechHelpdesk.util.HibernateUtil;
 
 /**
@@ -45,6 +46,24 @@ public class MemberEventManager {
             session.close();
         }
         return m;
+    }
+    public Technician getTech(Technician t){
+//        Member member= null;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Technician m where m.username=? and m.password=?");
+            q.setParameter(0, t.getUsername());
+            q.setParameter(1, t.getPassword());
+            t= (Technician)q.uniqueResult();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return t;
     }
     public List<Complaint> getListComplaint(String id){
         List<Complaint> list= new ArrayList<Complaint>();

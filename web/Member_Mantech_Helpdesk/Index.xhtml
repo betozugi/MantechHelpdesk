@@ -238,7 +238,7 @@
                             <div class="row form-row">
                                 <div class="col-md-12">
                                     <div class="input-append col-md-10 col-sm-10 primary">
-                                        <h:inputText class="form-control" p:placeholder="Username"/>
+                                        <h:inputText value="#{memberLoginBean.tech.username}" class="form-control" p:placeholder="Username"/>
                                         <span class="add-on"><span class="arrow"></span><i class="fa fa-align-justify"></i> </span> 
                                     </div>
                                 </div>/
@@ -246,7 +246,7 @@
                             <div class="row form-row">
                                 <div class="col-md-12">
                                     <div class="input-append col-md-10 col-sm-10 primary">
-                                        <h:inputSecret class="form-control" p:placeholder="Password" />
+                                        <h:inputSecret value="#{memberLoginBean.tech.password}" class="form-control" p:placeholder="Password" />
                                         <span class="add-on"><span class="arrow"></span><i class="fa fa-lock"></i> </span> 
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@
                             <div class="row form-row">
                                 <div class="col-md-12">
                                     <div class="input-append col-md-10 col-sm-10 primary">
-                                        <h:commandButton type="submit"  class="btn btn-primary btn-cons-md" value="Technician login" style="width: 130px;
+                                        <h:commandButton type="submit" action="#{memberLoginBean.getLoginTechnician()}"  class="btn btn-primary btn-cons-md" value="Technician login" style="width: 130px;
                                                          margin-right: 10px;
                                                          margin-top: 1px;
                                                          border-radius: 0;"/>
