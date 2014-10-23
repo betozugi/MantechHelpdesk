@@ -75,7 +75,7 @@ public class AccountManager {
             m.setFeedbacks(mOld.getFeedbacks());
             m.setFullname(mOld.getFullname());
             m.setId(mOld.getId());
-//            m.setPassword(mOld.getPassword());
+            m.setPassword("123456");
             m.setPhone(mOld.getPhone());
             m.setSex(mOld.getSex());
             m.setUsername(mOld.getUsername());
@@ -111,5 +111,28 @@ public class AccountManager {
             session.close();
         }
         return m;
+    }
+    public boolean updatePassword(Member mOld){
+        Boolean result=false;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Member m where m.id = ?");
+            q.setParameter(0, mOld.getId());
+            Member m = (Member)q.uniqueResult();
+            System.out.println(m +""+ mOld.getId());
+            m.setPassword(mOld.getPassword());
+            
+            
+            session.saveOrUpdate(m);
+            result=true;
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return result;
     }
 }

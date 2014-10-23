@@ -68,6 +68,19 @@ public class AccountManagerBean {
             return null;
         }
     }
+    public String changePass(){
+        member=(Member) HttpUtils.getFromSession("User");
+        if(AccountManager.getInstance().updatePassword(member)==true){
+            HttpUtils.addSuccessMessgae("Success", "ChangePassword successfully.");
+            return null;
+        }
+        else{
+            HttpUtils.addErrorMessgae("Error", "Update not success!");
+            return  null;
+        }
+        
+        
+    }
     @FacesConverter(forClass = Member.class)
     public class MemberConverter implements Converter{
 
