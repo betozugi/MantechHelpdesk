@@ -5,7 +5,6 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:g="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
@@ -37,14 +36,14 @@
                                                 <h:form class="" id="new-ticket-form">
                                                     <div class="row form-row">
                                                         <div class="col-md-12">
-                                                            <h:inputText id="Title" value="#{postBean.post.title}" h:type="text" g:placeholder="Title" required="true" requiredMessage="Title is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                            <h:inputText id="Title" value="#{postBean.post.title}" h:type="text"  required="true" requiredMessage="Title is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
                                                                 <f:validateLength minimum="3" />
                                                             </h:inputText>
                                                             <h:message style="color: red" for="Title"/>
                                                             <span style="color:red" id="errUsername" class="help"></span>
                                                         </div>
                                                     </div>
-                                                    <h:inputTextarea h:type="text" value="#{postBean.post.contents}" id="Contents" g:placeholder="Contents" required="true" requiredMessage="Contents is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
+                                                    <h:inputTextarea h:type="text" value="#{postBean.post.contents}" id="Contents"  required="true" requiredMessage="Contents is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
                                                         <f:validateLength minimum="10" />
                                                     </h:inputTextarea>
                                                     <h:message style="color: red" for="Contents"/>
@@ -85,7 +84,7 @@
                                                             <th style="width:1%">STT</th>
                                                             <th style="width:49%">Title</th>
                                                             <th style="width:10%">Date post</th>
-                                                            <th style="width:40%">Contents</th>
+                                                            <th style="width: 40%">Contents</th>
                                                         </tr>
                                                     </thead>
                                                     <c:forEach items="#{postBean.allPost}" var="row">
@@ -94,11 +93,6 @@
                                                             <td>#{row.title}</td>
                                                             <td>#{row.datePost}</td>
                                                             <td>#{row.contents}</td>
-                                                            <td>
-                                                                <h:commandButton value="Edit">
-                                                                    
-                                                                </h:commandButton>
-                                                            </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </table>
