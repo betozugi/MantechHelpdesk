@@ -56,14 +56,20 @@ public class LoginBean {
     }
     
     public boolean isLogined(){
-        if(HttpUtils.getFromSession("admin")!=null){
+        admin=(Admin) HttpUtils.getFromSession("admin");
+        if(admin!=null){
             return true;
         }
         return false;
         
     }
     public String Logout(){
-        HttpUtils.putToSession("admin", null);
+//        HttpUtils.putToSession("admin", null);
+        admin=(Admin) HttpUtils.getFromSession("admin");
+        System.out.println(admin.getAdname());
+        System.out.println("Logout nè");
+//        HttpUtils.putToSession("admin", null);
+        HttpUtils.removeSession("admin");
         return "/Login";
     }
 }

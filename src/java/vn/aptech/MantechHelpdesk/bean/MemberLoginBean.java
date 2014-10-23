@@ -10,6 +10,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.business.MemberEventManager;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Member;
@@ -71,6 +72,7 @@ public class MemberLoginBean {
             return null;
         }
     }
+    
 //    public List<Member> getListMember(){
 //        return MemberEventManager.getInstance().getListMember(member);
 //    }

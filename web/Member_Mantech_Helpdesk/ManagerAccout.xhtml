@@ -28,12 +28,12 @@
                                             <h:form class="" id="new-ticket-form">
                                                 <div class="row form-row">
                                                     <div class="col-md-12">
-                                                        <h:inputText  p:placeholder="Current Password" class="form-control" />
+                                                        <h:inputText   p:placeholder="Current Password" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="row form-row">
                                                     <div class="col-md-12">
-                                                        <h:inputText  p:placeholder="New Password" class="form-control" />
+                                                        <h:inputText value="#{accountManagerBean.member.password}"  p:placeholder="New Password" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="row form-row">
@@ -45,7 +45,7 @@
                                                     <div class="col-md-12 margin-top-10">
                                                         <div class="pull-right">
                                                             <button class="btn btn-cons" type="button" id="btn-close-ticket">Close</button>
-                                                            <button class="btn btn-primary btn-cons" type="submit">Change Password</button>
+                                                            <h:commandButton action="#{accountManagerBean.changePass()}" value="Change Password" class="btn btn-primary btn-cons" type="submit"></h:commandButton>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -70,14 +70,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 user-description-box  col-sm-8">
-                                        <h4 class="semi-bold no-margin">Cai Nay la full name</h4>
-                                        <h6 class="no-margin">cai nay la usernam đi nha</h6>
+                                        <h4 class="semi-bold no-margin">#{memberLoginBean.session.fullname}</h4>
+                                        <h6 class="no-margin">#{memberLoginBean.session.username}</h6>
                                         <br></br>
-                                        <p><i class="fa fa-map-marker"></i>dia chi</p>
-                                        <p><i class="fa fa-user"></i>giới tính đi</p>
-                                        <p><i class="fa fa-birthday-cake"></i>birthday</p>
-                                        <p><i class="fa fa-envelope"></i>Cai Nay la email</p>
-                                        <p><i class="fa fa-phone-square"></i>Cai Nay la so dien thoai</p>
+                                        <p><i class="fa fa-map-marker"></i>#{memberLoginBean.session.address}</p>
+                                        <p><i class="fa fa-user"></i>#{memberLoginBean.session.sex}</p>
+                                        <p><i class="fa fa-birthday-cake"></i>#{memberLoginBean.session.birthday}</p>
+                                        <p><i class="fa fa-envelope"></i>#{memberLoginBean.session.email}</p>
+                                        <p><i class="fa fa-phone-square"></i>#{memberLoginBean.session.phone}</p>
                                     </div>
                                 </div>
                             </div>

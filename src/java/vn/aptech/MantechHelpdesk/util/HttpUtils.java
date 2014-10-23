@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import vn.aptech.MantechHelpdesk.entities.Admin;
 
 /**
  *
@@ -37,6 +38,12 @@ public class HttpUtils {
        
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         sessionMap.put(name, value);
+    }
+    public static void removeSession(String name) {
+       
+        Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+        
+        sessionMap.remove(name);
     }
     //add success message
     public static void addSuccessMessgae(String summary, String detail) {
