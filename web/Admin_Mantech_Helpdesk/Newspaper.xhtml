@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:g="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./MasterPages.xhtml">
+
+            <ui:define name="top">
+                <h:form id="form" enctype="multipart/form-data">
+                <div class="content" style="padding-top:0px">
+
+                    <div class="page-title">
+                        <a href="Index.xhtml"><i class="icon-custom-left"></i></a>
+                        <h3>Post- <span class="semi-bold">Create Post</span></h3>
+                        <p:growl id="growl" showDetail="true" sticky="true"/>
+                        <div class="col-md-12">
+                            <div class="content" style="padding-top:0px">
+                                <div class="page-title">
+                                    <div class="pull-right actions">
+                                        <button class="btn btn-primary btn-cons" type="button" id="btn-new-ticket">New Post</button>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="grid simple transparent" id="new-ticket-wrapper" style="display:none">
+                                            <div class="grid-title no-border">
+                                            </div>
+                                            <div class="grid-body">
+                                                <h:form class="" id="new-ticket-form">
+                                                    <div class="row form-row">
+                                                        <div class="col-md-12">
+                                                            <h:inputText id="Title" value="#{postBean.post.title}" h:type="text" g:placeholder="Title" required="true" requiredMessage="Title is not null" validatorMessage=" Length is less than allowable minimum of 3" class="form-control">
+                                                                <f:validateLength minimum="3" />
+                                                            </h:inputText>
+                                                            <h:message style="color: red" for="Title"/>
+                                                            <span style="color:red" id="errUsername" class="help"></span>
+                                                        </div>
+                                                    </div>
+                                                    <h:inputTextarea h:type="text" value="#{postBean.post.contents}" id="Contents" g:placeholder="Contents" required="true" requiredMessage="Contents is not null" validatorMessage=" Length is less than allowable minimum of 10" class="form-control">
+                                                        <f:validateLength minimum="10" />
+                                                    </h:inputTextarea>
+                                                    <h:message style="color: red" for="Contents"/>
+                                                    <div class="row form-row">
+                                                        <div class="col-md-12 margin-top-10">
+                                                            <div class="pull-right">
+                                                                <button class="btn btn-cons" type="button" id="btn-close-ticket">Close</button>
+                                                                <h:commandButton action="#{postBean.insertPost()}" value="Save"  type="submit"  class="btn btn-success btn-cons" ><i class="icon-ok"></i></h:commandButton>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </h:form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid simple">
+                                <div class="grid-body no-border">
+                                    <br></br>
+
+                                    <div class="row-fluid">
+                                        <div class="row-fluid dataTables_wrapper">
+
+                                            <h2 class=" inline">Post </h2>
+
+                                        </div>
+
+                                        <div id="email-list">
+                                            <h:form>
+                                                <table class="table table-hover table-condensed" id="example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width:1%">STT</th>
+                                                            <th style="width:49%">Title</th>
+                                                            <th style="width:10%">Date post</th>
+                                                            <th style="width:40%">Contents</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <c:forEach items="#{postBean.allPost}" var="row">
+                                                        <tr>
+                                                            <td>#{row.id}</td>
+                                                            <td>#{row.title}</td>
+                                                            <td>#{row.datePost}</td>
+                                                            <td>#{row.contents}</td>
+                                                            <td>
+                                                                <h:commandButton value="Edit">
+                                                                    
+                                                                </h:commandButton>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </table>
+                                            </h:form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

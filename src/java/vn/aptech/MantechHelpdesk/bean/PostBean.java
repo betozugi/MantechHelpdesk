@@ -8,6 +8,7 @@ package vn.aptech.MantechHelpdesk.bean;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.business.MemberEventManager;
 import vn.aptech.MantechHelpdesk.entities.Post;
 
@@ -32,5 +33,14 @@ public class PostBean {
     }
     public List<Post> getAllPost(){
         return MemberEventManager.getInstance().getAllPost();
+    }
+    public String insertPost(){
+        if(MemberEventManager.getInstance().insertPost(post)){
+            return "/Admin_Mantech_Helpdesk/ManagerPost.xhtml";
+        }
+        else{
+            return null;
+        }
+        
     }
 }

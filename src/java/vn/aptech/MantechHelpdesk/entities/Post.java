@@ -3,8 +3,11 @@ package vn.aptech.MantechHelpdesk.entities;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,7 +24,7 @@ public class Post  implements java.io.Serializable {
 
      private int id;
      private String title;
-     private String datePost;
+     private Date datePost;
      private String contents;
 
     public Post() {
@@ -31,7 +34,7 @@ public class Post  implements java.io.Serializable {
     public Post(int id) {
         this.id = id;
     }
-    public Post(int id, String title, String datePost, String contents) {
+    public Post(int id, String title, Date datePost, String contents) {
        this.id = id;
        this.title = title;
        this.datePost = datePost;
@@ -39,7 +42,7 @@ public class Post  implements java.io.Serializable {
     }
    
      @Id 
-
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     @Column(name="Id", unique=true, nullable=false)
     public int getId() {
@@ -62,11 +65,11 @@ public class Post  implements java.io.Serializable {
 
     
     @Column(name="Date_post")
-    public String getDatePost() {
+    public Date getDatePost() {
         return this.datePost;
     }
     
-    public void setDatePost(String datePost) {
+    public void setDatePost(Date datePost) {
         this.datePost = datePost;
     }
 

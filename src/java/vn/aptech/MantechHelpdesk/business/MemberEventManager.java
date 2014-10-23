@@ -5,8 +5,11 @@
  */
 package vn.aptech.MantechHelpdesk.business;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import static java.util.Collections.list;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -101,7 +104,7 @@ public class MemberEventManager {
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            Query q= session.createQuery("from Post");
+            Query q= session.createQuery("from Post p order by p.id");
             list= q.list();
             session.getTransaction().commit();
         }catch(Exception ex){
@@ -111,6 +114,25 @@ public class MemberEventManager {
             session.close();
         }
         return list;
+    }
+    public boolean insertPost(Post post){
+        boolean result= false;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            post.setDatePost(date);
+            session.save(post);
+            result= true;
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return result;
     }
     public List<Feedback> findByIdFeedback(int id){
         List<Feedback> list= new ArrayList<Feedback>();
