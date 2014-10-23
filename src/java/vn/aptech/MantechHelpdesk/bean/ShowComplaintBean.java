@@ -23,7 +23,7 @@ import vn.aptech.MantechHelpdesk.util.HttpUtils;
  * @author ngocyen
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class ShowComplaintBean {
     private Complaint complaint;
     private Technician technician;
@@ -68,6 +68,24 @@ public class ShowComplaintBean {
     public List<Complaint> findHistoryComplaint(){
         return EventManager.getInstance().findHistoryComplaint();
     }
+    public  List<Complaint> findTechComplaint(){
+        technician = (Technician) HttpUtils.getFromSession("tech");
+        return EventManager.getInstance().findTechComplaint(technician);
+        
+    }
+    public List<Complaint> findTechComplaiting(){
+        technician = (Technician) HttpUtils.getFromSession("tech");
+        return EventManager.getInstance().findTechComplainting(technician); 
+    }
+    public void completed(Complaint c){
+        if(EventManager.getInstance().completed(c)){
+            HttpUtils.addSuccessMessgae("Success", "Update successfully.");
+        }
+        else{
+            HttpUtils.addErrorMessgae("Error", "Update not success!");
+        }
+        
+    }
     public void updateComplaint(Complaint c){
          c.setTechnician(technician);
         c.setStatus("1");
@@ -86,6 +104,7 @@ public class ShowComplaintBean {
             {
                 HttpUtils.addErrorMessgae("Error", "Send feedback not success!");
             }
+            
         }
         else{
             HttpUtils.addErrorMessgae("Error", "Update not success!");
@@ -99,12 +118,12 @@ public class ShowComplaintBean {
         if(EventManager.getInstance().insertFeedback(feedback)){
                  HttpUtils.addSuccessMessgae("Success", "Send feedback successfully.");
                  return "HistoryComplaints";
-            }
-            else
-            {
-                HttpUtils.addErrorMessgae("Error", "Send feedback not success!");
-                return null;
-            }
+        }
+        else
+        {
+            HttpUtils.addErrorMessgae("Error", "Send feedback not success!");
+            return null;
+        }
         
         
     }

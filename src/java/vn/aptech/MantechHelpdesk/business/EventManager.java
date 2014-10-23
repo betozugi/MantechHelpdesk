@@ -106,6 +106,42 @@ public class EventManager {
         }
         return list;
     }
+   public List<Complaint> findTechComplaint(Technician tech){
+        List<Complaint> list= new ArrayList<Complaint>();
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.technician.id=? and c.status=?");
+            q.setParameter(0, tech.getId());
+            q.setParameter(1, "2");
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return list;
+    }
+    public List<Complaint> findTechComplainting(Technician tech){
+        List<Complaint> list= new ArrayList<Complaint>();
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.technician.id=? and c.status=?");
+            q.setParameter(0, tech.getId());
+            q.setParameter(1, "1");
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return list;
+    }
    public List<Technician> getFreeTechnician(){
         List<Technician> list= new ArrayList<Technician>();
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -202,5 +238,28 @@ public class EventManager {
             session.close();
         }
         return list;
+    }
+    public boolean completed(Complaint cOld){
+        Boolean result=false;
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.id = ?");
+            q.setParameter(0, cOld.getId());
+            Complaint c = (Complaint)q.uniqueResult();
+            System.out.println(c +""+ cOld.getId());
+            c.setStatus("2");
+            
+            
+            session.saveOrUpdate(c);
+            result=true;
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return result;
     }
 }

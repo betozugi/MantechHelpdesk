@@ -86,7 +86,7 @@
                                     <div class="user-details">
                                         <div class="username">
                                             <span class="badge badge-important">1</span>
-                                            <span class="bold">Dong Phuong Bat Bai</span>
+                                            <span class="bold">#{memberLoginBean.techSession.fullname}</span>
                                         </div>
                                     </div>
                                     <div class="iconset top-down-arrow"></div>
@@ -151,13 +151,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8 user-description-box  col-sm-8">
-                                                    <h4 class="semi-bold no-margin">Nguyen Duc Dinh Duy</h4>
-                                                    <h6 class="no-margin">Admin of Mantech Helpdesk</h6>
+                                                    <h4 class="semi-bold no-margin">#{memberLoginBean.techSession.fullname}</h4>
+                                                    <h6 class="no-margin">#{memberLoginBean.techSession.username}</h6>
                                                     <br></br>
                                                     <p><i class="fa fa-map-marker"></i>Ho Chi Minh City</p>
-                                                    <p><i class="fa fa-users"></i>Admin</p>
-                                                    <p><i class="fa fa-mobile"></i>012.4567.3301</p>
-                                                    <p><i class="fa fa-envelope"></i>nguyenducdinhduy@gmail.com</p>
+                                                    <p><i class="fa fa-users"></i>Technician</p>
+                                                    <p><i class="fa fa-mobile"></i>#{memberLoginBean.techSession.phone}</p>
+                                                    <p><i class="fa fa-envelope"></i>#{memberLoginBean.techSession.email}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,12 +172,14 @@
                                                     <h3>New Task</h3>
 
                                                 </div>
+                                                 <c:forEach items="#{showComplaintBean.findTechComplaiting()}" var="row">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="grid simple no-border" >
+                                                           
                                                             <div class="grid-title no-border descriptive clickable">
-                                                                <h4 class="semi-bold">Tên Người complain</h4>
-                                                                <p><span class="text-success bold">Created on 29/09/14 at 06:33</span> - Phòng tư vấn</p>
+                                                                <h4 class="semi-bold">#{row.member.fullname}</h4>
+                                                                <p><span class="text-success bold">#{row.dateComplaint}</span> #{row.member.department}</p>
                                                                 <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a></div>
                                                             </div>
                                                             <div class="grid-body  no-border" style="display:none">
@@ -187,20 +189,22 @@
                                                                     </div>
                                                                     <div class="info-wrapper">
                                                                         <div class="info">
-                                                                            <p style="font-size: 20px"><span class="text-success bold">Đây Là tiêu đề </span></p>
+                                                                            <p style="font-size: 20px"><span class="text-success bold">#{row.title}</span></p>
                                                                         </div>
                                                                         <div class="info">
-                                                                            Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung Đây Là nội dung 
+                                                                            #{row.contents}
                                                                         </div>
                                                                     </div>
                                                                     <div class="pull-right actions" style="background-color: #00acec;margin-top: 20px">
-                                                                        <h:commandButton class="btn btn-primary" value="Completed" />
+                                                                        <h:commandButton action="#{showComplaintBean.completed(row)}" class="btn btn-primary" value="Completed" />
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                             
                                                         </div>
                                                     </div>
                                                 </div>
+                                                     </c:forEach>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -225,7 +229,7 @@
                                                                     <th style="width:20%"></th>
                                                                 </tr>
                                                             </thead>
-                                                            <c:forEach items="#{showComplaintBean.findNewComplaint()}" var="row">
+                                                            <c:forEach items="#{showComplaintBean.findTechComplaint()}" var="row">
                                                                 <a href="nhocsjro.xhtml">
                                                                     <tr>
                                                                         <td>

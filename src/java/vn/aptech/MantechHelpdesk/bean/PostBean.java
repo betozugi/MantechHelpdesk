@@ -8,7 +8,6 @@ package vn.aptech.MantechHelpdesk.bean;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import vn.aptech.MantechHelpdesk.business.EventManager;
 import vn.aptech.MantechHelpdesk.business.MemberEventManager;
 import vn.aptech.MantechHelpdesk.entities.Post;
 

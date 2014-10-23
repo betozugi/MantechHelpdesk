@@ -115,7 +115,7 @@ public class MemberEventManager {
         }
         return list;
     }
-    public boolean insertPost(Post post){
+     public boolean insertPost(Post post){
         boolean result= false;
         Session session= HibernateUtil.getSessionFactory().openSession();
         try{

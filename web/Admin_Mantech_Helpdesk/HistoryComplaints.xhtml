@@ -27,6 +27,7 @@
                                                     <th style="width:30%">Fullname</th>
                                                     <th style="width:40%">Title</th>
                                                     <th style="width:10%">Date</th>
+                                                     <th style="width:19%">Technician</th>
                                                     <th style="width:19%"></th>
                                                 </tr>
                                             </thead>
@@ -39,6 +40,7 @@
                                                         </td>
                                                         <td>#{row.title}</td>
                                                         <td><span class="muted">#{row.dateComplaint}</span></td>
+                                                        <td>#{row.technician.fullname}</td>
                                                         <td style="text-align: right">
                                                             <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
                                                             <div class="modal fade" id="myModal#{row.idUser}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
@@ -133,6 +135,7 @@
                                                     <th style="width:30%">Fullname</th>
                                                     <th style="width:40%">Title</th>
                                                     <th style="width:10%">Date</th>
+                                                    <th style="width:19%">Technician</th>
                                                     <th style="width:19%"></th>
                                                 </tr>
                                             </thead>
@@ -145,6 +148,7 @@
                                                         </td>
                                                         <td>#{row.title}</td>
                                                         <td><span class="muted">#{row.dateComplaint}</span></td>
+                                                        <td>#{row.technician.fullname}</td>
                                                         <td style="text-align: right">
                                                             <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
                                                             <div class="modal fade" id="myModal#{row.idUser}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

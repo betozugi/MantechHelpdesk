@@ -64,7 +64,6 @@ public class MemberLoginBean {
         tech= MemberEventManager.getInstance().getTech(tech);
         if(tech!=null){
             HttpUtils.putToSession("tech", tech);
-//            System.out.println(member.getAvatar());
             return "/Member_Mantech_Helpdesk/Technician";
         }
         else{
@@ -83,6 +82,10 @@ public class MemberLoginBean {
          Member m= new Member();
             m= (Member)HttpUtils.getFromSession("User");
             return m;
+    }
+    public Technician getTechSession(){
+        tech = (Technician) HttpUtils.getFromSession("tech");
+        return tech;
     }
     public boolean isLogined(){
         if(HttpUtils.getFromSession("User")!=null){
