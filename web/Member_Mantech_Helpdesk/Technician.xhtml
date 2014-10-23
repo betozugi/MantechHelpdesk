@@ -204,80 +204,79 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                                <div class="page-title">
-                                                    <i class="icon-custom-left"></i>
-                                                    <h3>History Task</h3>
+                                            <div class="page-title">
+                                                <i class="icon-custom-left"></i>
+                                                <h3>History Task</h3>
 
-                                                </div>
-                                        <div class="grid-title no-border">
-                                            <h4>Complaint - <span class="semi-bold">Complaining</span></h4>
-                                            <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="remove"></a> </div>
-                                        </div>
-                                        <div class="grid-body no-border"> <br></br>
-                                            <div class="row">
-                                                <h:form>
-                                                    <table class="table table-striped table-fixed-layout table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="medium-cell">Fullname</th>
-                                                                <th>Title</th>
-                                                                <th class="medium-cell">Date</th>
-                                                                <th></th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <c:forEach items="#{showComplaintBean.findNewComplaint()}" var="row">
-                                                            <a href="nhocsjro.xhtml">
+                                            </div>
+                                            <div class="grid-title no-border">
+                                                <h4>Complaint - <span class="semi-bold">Complaining</span></h4>
+                                                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="remove"></a> </div>
+                                            </div>
+                                            <div class="grid-body no-border"> <br></br>
+                                                <div class="row">
+                                                    <h:form>
+                                                        <table class="table table-hover table-condensed" id="example">
+                                                            <thead>
                                                                 <tr>
-                                                                    <td>
-                                                                        <h:graphicImage library="img/avatar" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
-                                                                    </td>
-                                                                    <td>#{row.title}</td>
-                                                                    <td><span class="muted">#{row.dateComplaint}</span></td>
-                                                                    <td style="text-align: right">
-                                                                        <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
-                                                                        <div class="modal fade" id="myModal#{row.idUser}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                                                                            <div class="modal-dialog">
-                                                                                <div class="modal-content">
-                                                                                    <div class=" tiles white col-md-12 no-padding">
-                                                                                        <div class="tiles green cover-pic-wrapper" style="height: 100px">
-                                                                                            <h:graphicImage library="img" name="cover.jpg"  alt="" />
-                                                                                        </div>
-                                                                                        <div class="tiles white">
+                                                                    <th style="width:30%">Fullname</th>
+                                                                    <th style="width:30%">Title</th>
+                                                                    <th style="width:20%">Date</th>
+                                                                    <th style="width:20%"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <c:forEach items="#{showComplaintBean.findNewComplaint()}" var="row">
+                                                                <a href="nhocsjro.xhtml">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <h:graphicImage library="img/avatar" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
+                                                                        </td>
+                                                                        <td>#{row.title}</td>
+                                                                        <td><span class="muted">#{row.dateComplaint}</span></td>
+                                                                        <td style="text-align: right">
+                                                                            <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
+                                                                            <div class="modal fade" id="myModal#{row.idUser}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class=" tiles white col-md-12 no-padding">
+                                                                                            <div class="tiles green cover-pic-wrapper" style="height: 100px">
+                                                                                                <h:graphicImage library="img" name="cover.jpg"  alt="" />
+                                                                                            </div>
+                                                                                            <div class="tiles white">
 
-                                                                                            <div class="row">
-                                                                                                <div class="col-md-11 user-description-box  col-sm-11" style="text-align: left">
-                                                                                                    <div class="user-profile-pic">
-                                                                                                        <h:graphicImage library="img/avatar" name="#{row.member.avatar}" style="height: 100px;width: 100px" width="69" height="69" h:data-src-retina="assets/img/profiles/avatar2x.jpg" h:data-src="assets/img/profiles/avatar.jpg"  alt=""/>
-                                                                                                    </div>
-                                                                                                    <div class="user-mini-description">
-                                                                                                        <h4 class="semi-bold no-margin">#{row.member.fullname}</h4>
-                                                                                                        <br></br>
-                                                                                                        <h5 class="no-margin" style="text-align: left">#{row.dateComplaint}</h5>
-                                                                                                        <br></br>
-                                                                                                        <p><i class="fa fa-envelope"></i><h4 style="white-space: initial">#{row.title}</h4></p>
-                                                                                                        <p style="white-space: initial">
-                                                                                                            #{row.contents}
-                                                                                                        </p>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-md-11 user-description-box  col-sm-11" style="text-align: left">
+                                                                                                        <div class="user-profile-pic">
+                                                                                                            <h:graphicImage library="img/avatar" name="#{row.member.avatar}" style="height: 100px;width: 100px" width="69" height="69" h:data-src-retina="assets/img/profiles/avatar2x.jpg" h:data-src="assets/img/profiles/avatar.jpg"  alt=""/>
+                                                                                                        </div>
+                                                                                                        <div class="user-mini-description">
+                                                                                                            <h4 class="semi-bold no-margin">#{row.member.fullname}</h4>
+                                                                                                            <br></br>
+                                                                                                            <h5 class="no-margin" style="text-align: left">#{row.dateComplaint}</h5>
+                                                                                                            <br></br>
+                                                                                                            <p><i class="fa fa-envelope"></i><h4 style="white-space: initial">#{row.title}</h4></p>
+                                                                                                            <p style="white-space: initial">
+                                                                                                                #{row.contents}
+                                                                                                            </p>
+                                                                                                        </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div class="modal-footer" style="background-color: white">
-                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        <div class="modal-footer" style="background-color: white">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </a>
-                                                        </c:forEach>
-                                                    </table>
-                                                </h:form>
+                                                                        </td>
+                                                                    </tr>
+                                                                </a>
+                                                            </c:forEach>
+                                                        </table>
+                                                    </h:form>
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -309,6 +308,11 @@
         <h:outputScript library="plugins/bootstrap-tag" name="bootstrap-tagsinput.min.js" />
         <h:outputScript library="plugins/dropzone" name="dropzone.min.js" />
         <h:outputScript library="js" name="form_elements.js" />
+        <h:outputScript library="plugins/jquery-datatable/js" name="jquery.dataTables.min.js" />
+        <h:outputScript library="plugins/jquery-datatable/js" name="TableTools.min.js" />
+        <h:outputScript library="plugins/datatables-responsive/js" name="datatables.responsive.js" />
+        <h:outputScript library="plugins/datatables-responsive/js" name="lodash.min.js" />
+        <h:outputScript library="js" name="datatables.js" />
         <h:outputScript library="plugins/jquery-validation/js" name="jquery.validate.min.js" />
         <h:outputScript library="js" name="support_ticket.js" />
         <h:outputScript library="js" name="email_comman.js" />

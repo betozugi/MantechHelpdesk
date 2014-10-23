@@ -124,10 +124,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-container row">
 
-                <div class="page-sidebar mini" id="main-menu">
-                    <div class="user-info-wrapper">
+            <div class="page-container row-fluid">
+                <div class="page-sidebar" id="main-menu"> 
+                    <div class="user-info-wrapper">	
                         <div class="profile-wrapper">
 
                             <h:graphicImage library="img/avatar" name="#{memberLoginBean.session.avatar}" alt=""  width="69" height="69" />
@@ -137,7 +137,6 @@
                             <div class="username" style="font-size:18px;">#{memberLoginBean.session.fullname}</div>
                         </div>
                     </div>
-                    <br /><br /><br /><br />
                     <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
                     <ul>
                         <li class="start active "> <a style="text-decoration:none" href="Home.xhtml"> <i class="fa fa-home"></i> <span class="title">Home</span> </a> </li>
@@ -152,18 +151,16 @@
                         <li class="start active "> <a  style="text-decoration:none" href="Home.xhtml"> <i class="fa fa-newspaper-o"></i> <span class="title">Newspaper</span> </a> </li>
                         <li class="start active "> <a  style="text-decoration:none" href="FAQ.xhtml"> <i class="fa fa-question-circle"></i> <span class="title">FAQ</span> </a> </li>
                     </ul>
-                    <a href="#" class="scrollup">Scroll</a>
-                    <div class="clearfix"></div>
                 </div>
-                <div class="page-content condensed">
+                <div class="page-content">
                     <div class="content">
                         <div id="top" class="top">
                             <ui:insert name="top"></ui:insert>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
             <h:outputScript library="plugins" name="jquery-1.8.3.min.js" />
             <h:outputScript library="plugins/jquery-ui" name="jquery-ui-1.10.1.custom.min.js" />
             <h:outputScript library="plugins/bootstrap/js" name="bootstrap.min.js" />
@@ -186,6 +183,11 @@
             <h:outputScript library="plugins/bootstrap-tag" name="bootstrap-tagsinput.min.js" />
             <h:outputScript library="plugins/dropzone" name="dropzone.min.js" />
             <h:outputScript library="js" name="form_elements.js" />
+            <h:outputScript library="plugins/jquery-datatable/js" name="jquery.dataTables.min.js" />
+            <h:outputScript library="plugins/jquery-datatable/js" name="TableTools.min.js" />
+            <h:outputScript library="plugins/datatables-responsive/js" name="datatables.responsive.js" />
+            <h:outputScript library="plugins/datatables-responsive/js" name="lodash.min.js" />
+            <h:outputScript library="js" name="datatables.js" />
             <h:outputScript library="plugins/jquery-validation/js" name="jquery.validate.min.js" />
             <h:outputScript library="js" name="support_ticket.js" />
             <h:outputScript library="js" name="email_comman.js" />

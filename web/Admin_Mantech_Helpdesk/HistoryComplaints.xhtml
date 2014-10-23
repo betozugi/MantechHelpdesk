@@ -20,17 +20,14 @@
                             <div class="grid-body no-border"> <br></br>
                                 <div class="row">
                                     <h:form>
-                                        <table class="table table-striped table-fixed-layout table-hover">
+                                        <table class="table table-hover table-condensed" id="example">
                                             <thead>
                                                 <tr>
-                                                    <th class="small-cell">Stt</th>
-                                                    <th class="medium-cell">Fullname</th>
-                                                    <th class="medium-cell">Department</th>
-                                                    <th>Title</th>
-                                                    <th>Content</th>
-                                                    <th class="medium-cell">Date</th>
-                                                    <th></th>
-
+                                                    <th style="width:1%">Stt</th>
+                                                    <th style="width:30%">Fullname</th>
+                                                    <th style="width:40%">Title</th>
+                                                    <th style="width:10%">Date</th>
+                                                    <th style="width:19%"></th>
                                                 </tr>
                                             </thead>
                                             <c:forEach items="#{showComplaintBean.findComplainting()}" var="row">
@@ -40,9 +37,7 @@
                                                         <td>
                                                             <h:graphicImage library="img/avatar" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
                                                         </td>
-                                                        <td>#{row.member.department}</td>
                                                         <td>#{row.title}</td>
-                                                        <td>#{row.contents}</td>
                                                         <td><span class="muted">#{row.dateComplaint}</span></td>
                                                         <td style="text-align: right">
                                                             <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
@@ -131,17 +126,14 @@
                             <div class="grid-body no-border"> <br></br>
                                 <div class="row">
                                     <h:form>
-                                        <table class="table table-striped table-fixed-layout table-hover">
+                                        <table class="table table-hover table-condensed" id="example">
                                             <thead>
                                                 <tr>
-                                                    <th class="small-cell">Stt</th>
-                                                    <th class="medium-cell">Fullname</th>
-                                                    <th class="medium-cell">Department</th>
-                                                    <th>Title</th>
-                                                    <th>Content</th>
-                                                    <th class="medium-cell">Date</th>
-                                                    <th></th>
-
+                                                    <th style="width:1%">Stt</th>
+                                                    <th style="width:30%">Fullname</th>
+                                                    <th style="width:40%">Title</th>
+                                                    <th style="width:10%">Date</th>
+                                                    <th style="width:19%"></th>
                                                 </tr>
                                             </thead>
                                             <c:forEach items="#{showComplaintBean.findHistoryComplaint()}" var="row">
@@ -151,9 +143,7 @@
                                                         <td>
                                                             <h:graphicImage library="img/avatar" name="#{row.member.avatar}"  h:width="25" h:height="25" />#{row.member.fullname}
                                                         </td>
-                                                        <td>#{row.member.department}</td>
                                                         <td>#{row.title}</td>
-                                                        <td>#{row.contents}</td>
                                                         <td><span class="muted">#{row.dateComplaint}</span></td>
                                                         <td style="text-align: right">
                                                             <button class="btn btn-lg" data-toggle="modal" data-target="#myModal#{row.idUser}">DETAIL</button>
