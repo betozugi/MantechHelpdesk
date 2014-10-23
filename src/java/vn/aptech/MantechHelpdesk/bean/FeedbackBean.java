@@ -6,9 +6,11 @@
 
 package vn.aptech.MantechHelpdesk.bean;
 
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
+import vn.aptech.MantechHelpdesk.business.FeedbackManager;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Feedback;
 import vn.aptech.MantechHelpdesk.util.HttpUtils;
@@ -42,4 +44,5 @@ public class FeedbackBean {
          return null;
         
     }
+     
 }

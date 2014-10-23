@@ -79,4 +79,56 @@ public class FeedbackManager {
         }
         return result;
     }
+    public List<Feedback> feedbackMemberShow(int idMem,int idCom){
+        List<Feedback> list= new ArrayList<Feedback>();
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Feedback f where f.member.id=? and f.complaint.id=?");
+            q.setParameter(0, idMem);
+            q.setParameter(1, idCom);
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return list;
+    }
+     public Complaint findByIdMember(Complaint c){
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Complaint c where c.id=?");
+            q.setParameter(0, c.getId());
+            c= (Complaint)q.uniqueResult();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return c;
+    }
+      public List<Feedback> feedbackAdminShow(int idCom){
+        List<Feedback> list= new ArrayList<Feedback>();
+        Session session= HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Query q= session.createQuery("from Feedback f where f.admin.id=? and f.complaint.id=?");
+            q.setParameter(0, 1);
+            q.setParameter(1, idCom);
+            list= q.list();
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally{
+            session.close();
+        }
+        return list;
+    }
 }

@@ -11,6 +11,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import vn.aptech.MantechHelpdesk.business.EventManager;
+import vn.aptech.MantechHelpdesk.business.FeedbackManager;
 import vn.aptech.MantechHelpdesk.entities.Admin;
 import vn.aptech.MantechHelpdesk.entities.Complaint;
 import vn.aptech.MantechHelpdesk.entities.Feedback;
@@ -28,6 +29,7 @@ public class ShowComplaintBean {
     private Complaint complaint;
     private Technician technician;
     private Feedback feedback;
+    private Member mem=new Member();
     private Admin admin=new Admin();
     public ShowComplaintBean(){
         feedback=new Feedback();
@@ -126,6 +128,17 @@ public class ShowComplaintBean {
         }
         
         
+    }
+    public List<Feedback> feedbackMemberShow(Complaint c){
+            complaint=FeedbackManager.getInstance().findByIdMember(c);
+//        System.out.println(complaint.getId()+"    lalalallalalalal id" + complaint.getMember().getId());
+        return FeedbackManager.getInstance().feedbackMemberShow(complaint.getMember().getId(),complaint.getId());
+//        return FeedbackManager.getInstance().feedbackMemberShow();
+    }
+    public List<Feedback> feedbackAdminShow(Complaint c){
+        complaint=FeedbackManager.getInstance().findByIdMember(c);
+        System.out.print(complaint.getId());
+        return FeedbackManager.getInstance().feedbackAdminShow(complaint.getId());
     }
     
 }

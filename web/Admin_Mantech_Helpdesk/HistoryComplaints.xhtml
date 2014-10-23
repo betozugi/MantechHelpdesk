@@ -25,10 +25,10 @@
                                                 <tr>
                                                     <th style="width:1%">Stt</th>
                                                     <th style="width:30%">Fullname</th>
-                                                    <th style="width:40%">Title</th>
+                                                    <th style="width:30%">Title</th>
                                                     <th style="width:10%">Date</th>
-                                                     <th style="width:19%">Technician</th>
-                                                    <th style="width:19%"></th>
+                                                     <th style="width:14%">Technician</th>
+                                                    <th style="width:15%"></th>
                                                 </tr>
                                             </thead>
                                             <c:forEach items="#{showComplaintBean.findComplainting()}" var="row">
@@ -81,7 +81,7 @@
                                                                         </div>
                                                                         <div class="col-md-12 col-vlg-12">
                                                                             <ul class="cbp_tmtimeline">
-                                                                                <c:forEach items="#{postBean.allPost}" var="row">
+                                                                                <c:forEach items="#{showComplaintBean.feedbackMemberShow(row)}" var="row1">
                                                                                     <li>
                                                                                         <div class="cbp_tmicon animated bounceIn">
                                                                                             <div class="user-profile"><i class="fa fa-newspaper-o"/></div>
@@ -90,11 +90,11 @@
 
                                                                                             <div class="p-t-10 p-l-30 p-r-20 p-b-20 xs-p-r-10 xs-p-l-10 xs-p-t-5">
 
-                                                                                                <h4 class="inline m-b-5"><span class="text-success semi-bold">#{row.title}</span> </h4>
-                                                                                                <div class="muted">#{row.datePost}</div>
+                                                                                                <!--<h4 class="inline m-b-5"><span class="text-success semi-bold"></span> </h4>-->
+                                                                                                <div class="muted">#{row1.dateFeedback}</div>
                                                                                                 <div class="xs-p-r-10 xs-p-l-10 p-l-30 p-r-20 p-b-10 p-t-20 row">
                                                                                                     <span>
-                                                                                                        #{row.contents}
+                                                                                                        #{row1.contents}
                                                                                                     </span>
                                                                                                 </div>
 
@@ -133,10 +133,10 @@
                                                 <tr>
                                                     <th style="width:1%">Stt</th>
                                                     <th style="width:30%">Fullname</th>
-                                                    <th style="width:40%">Title</th>
+                                                    <th style="width:30%">Title</th>
                                                     <th style="width:10%">Date</th>
-                                                    <th style="width:19%">Technician</th>
-                                                    <th style="width:19%"></th>
+                                                     <th style="width:14%">Technician</th>
+                                                    <th style="width:15%"></th>
                                                 </tr>
                                             </thead>
                                             <c:forEach items="#{showComplaintBean.findHistoryComplaint()}" var="row">
@@ -184,7 +184,7 @@
                                                                         </div>
                                                                         <div class="col-md-12 col-vlg-12">
                                                                             <ul class="cbp_tmtimeline">
-                                                                                <c:forEach items="#{postBean.allPost}" var="row">
+                                                                               <c:forEach items="#{showComplaintBean.feedbackMemberShow(row)}" var="row1">
                                                                                     <li>
                                                                                         <div class="cbp_tmicon animated bounceIn">
                                                                                             <div class="user-profile"><i class="fa fa-newspaper-o"/></div>
@@ -193,11 +193,11 @@
 
                                                                                             <div class="p-t-10 p-l-30 p-r-20 p-b-20 xs-p-r-10 xs-p-l-10 xs-p-t-5">
 
-                                                                                                <h4 class="inline m-b-5"><span class="text-success semi-bold">#{row.title}</span> </h4>
-                                                                                                <div class="muted">#{row.datePost}</div>
+                                                                                                <!--<h4 class="inline m-b-5"><span class="text-success semi-bold"></span> </h4>-->
+                                                                                                <div class="muted">#{row1.dateFeedback}</div>
                                                                                                 <div class="xs-p-r-10 xs-p-l-10 p-l-30 p-r-20 p-b-10 p-t-20 row">
                                                                                                     <span>
-                                                                                                        #{row.contents}
+                                                                                                        #{row1.contents}
                                                                                                     </span>
                                                                                                 </div>
 
